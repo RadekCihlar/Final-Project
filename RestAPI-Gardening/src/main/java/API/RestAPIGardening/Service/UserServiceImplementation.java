@@ -3,10 +3,11 @@ package API.RestAPIGardening.Service;
 import API.RestAPIGardening.Model.User;
 import API.RestAPIGardening.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class UserServiceImplementation  implements UserService{
 
     private UserRepository userRepository;
@@ -22,7 +23,7 @@ public class UserServiceImplementation  implements UserService{
         if (_user != null){
             _user.setUsername(user.getUsername());
             _user.setPassword(user.getPassword());
-            userRepository.save(user);
+            return _user;
         }
 
         return null;

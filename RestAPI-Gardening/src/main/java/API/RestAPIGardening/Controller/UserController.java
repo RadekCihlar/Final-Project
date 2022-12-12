@@ -62,7 +62,7 @@ public class UserController {
         User _user = userService.updateUserById(id, user);
 
         if (_user == null){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(_user, HttpStatus.OK);
     }
