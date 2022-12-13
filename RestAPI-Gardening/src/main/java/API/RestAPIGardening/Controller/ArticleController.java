@@ -28,7 +28,7 @@ public class ArticleController {
             if (title == null) {
                 articles = articleService.getAllArticles();
             } else  {
-                articles = articleService.getAllArticles();
+                articles = articleService.getAllArticlesByTitle(title);
             }
 
             if (articles.isEmpty()) {
@@ -38,11 +38,20 @@ public class ArticleController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
 
+    @GetMapping("/articles/{id}")
+    public ResponseEntity<Article> getArticleById(@PathVariable("id") long id) {
+        Article article = articleService.getArticleById(id);
+
+        if (article != null) {
+            return new ResponseEntity<>(article, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/articles")
-    public ResponseEntity<Article> createArticle(@RequestBody Article article){
+    public ResponseEntity<Article> createArticle(@RequestBody Article article) {
 
         try {
             Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText()));
@@ -51,6 +60,16 @@ public class ArticleController {
         }catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PutMapping("/articles/{id}")
+    public ResponseEntity<Article> updateArticleById(@PathVariable("id") long id, @RequestBody Article article) {
+        Article toUpdateArticle = articleService.updateArticleById(id, article);
+
+        if (toUpdateArticle != null) {
+            return new ResponseEntity<>(articleService.saveArticle(toUpdateArticle), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

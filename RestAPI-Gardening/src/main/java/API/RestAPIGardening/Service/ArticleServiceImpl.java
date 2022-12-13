@@ -21,7 +21,6 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public List<Article> getAllArticles() {
-//        return articleRepository.findAll();
         List<Article> articles = articleRepository.findAll();
         if (articles.isEmpty()) {
             return null;
@@ -30,7 +29,7 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public Article getArticleByID(long id) {
+    public Article getArticleById(long id) {
         Optional<Article> optionalArticle = this.articleRepository.findById(id);
         Article article;
 
@@ -51,11 +50,24 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public void deleteArticleById(long id) {
         this.articleRepository.deleteById(id);
-
     }
 
-//    @Override
-//    public List<Article> getArticlesByTitle(String title) {
-//        return null;
-//    }
+    @Override
+    public List<Article> getAllArticlesByTitle(String title) {
+        return articleRepository.findByTitle(title);
+    }
+
+    public Article updateArticleById(long id, Article article) {
+        Article articleTemp = getArticleById(id);
+
+        if (articleTemp != null) {
+            articleTemp.setTitle(article.getTitle());
+            articleTemp.setIntroText(article.getIntroText());
+            articleTemp.setBodyText(article.getBodyText());
+            articleTemp.setOutroText(article.getOutroText());
+
+            return  articleTemp;
+        }
+        return null;
+    }
 }
