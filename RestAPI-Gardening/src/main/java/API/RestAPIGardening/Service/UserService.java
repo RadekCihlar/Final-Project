@@ -1,7 +1,6 @@
 package API.RestAPIGardening.Service;
 
 import API.RestAPIGardening.Model.User;
-import API.RestAPIGardening.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,5 +19,6 @@ public interface UserService {
 
     boolean existsById(long id);
 
-    void deleteAll();
+
+    List<User> findAllByUsernameContainsIgnoreCase(String username);
 }

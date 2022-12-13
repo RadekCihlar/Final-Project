@@ -39,6 +39,15 @@ public class UserServiceImplementation  implements UserService{
         return userRepository.findAll();
     }
 
+    public List<User> findAllByUsernameContainsIgnoreCase(String username){
+        List<User> _user = userRepository.findAllByUsernameContainsIgnoreCase(username);
+
+        if (_user.isEmpty()){
+            return null;
+        }
+        return _user;
+    }
+
     @Override
     public User findById(long id) {
         Optional<User> user = userRepository.findById(id);
@@ -56,8 +65,6 @@ public class UserServiceImplementation  implements UserService{
         return userRepository.existsById(id);
     }
 
-    @Override
-    public void deleteAll() {
-        userRepository.deleteAll();
-    }
+
+
 }

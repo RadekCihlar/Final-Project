@@ -2,12 +2,9 @@ package API.RestAPIGardening.Controller;
 
 import API.RestAPIGardening.Model.User;
 import API.RestAPIGardening.Service.UserService;
-import org.apache.coyote.Response;
-import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -75,5 +72,17 @@ public class UserController {
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/user/search/{searchTerm}")
+    private ResponseEntity<List<User>> searchForUsers(@PathVariable("searchTerm") String searchTerm){
+        List<User> usersLike = userService.findAllByUsernameContainsIgnoreCase(searchTerm);
+
+
+        if (usersLike.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(usersLike, HttpStatus.OK);
     }
 }
