@@ -58,7 +58,7 @@ public class ArticleController {
             Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText(), article.getPostedDateTime()));
 
             return new ResponseEntity<>(_article, HttpStatus.CREATED);
-        }catch (Exception e){
+        } catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -73,4 +73,15 @@ public class ArticleController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @DeleteMapping("/articles/{id}")
+    public ResponseEntity<Article> deleteArticleById(@PathVariable("id") long id) {
+
+        try {
+            articleService.deleteArticleById(id);
+
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
