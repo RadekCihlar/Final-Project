@@ -24,20 +24,31 @@ public class ArticleController {
     public ResponseEntity<List<Article>> getAllArticles(@RequestParam(required = false) String title) {
 
         try {
-            List<Article> articles = new ArrayList<>();
-
-            if (title == null) {
-                articles = articleService.getAllArticles();
-            } else  {
-                articles = articleService.findAllByTitleContainsIgnoreCase(title);
-            }
+            List<Article> articles = articleService.getAllArticles();
 
             if (articles.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
+
             return new ResponseEntity<>(articles, HttpStatus.OK);
+
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/articles/search/{searchTerm}")
+    public ResponseEntity<List<Article>> getAllArticlesByTitle(@PathVariable("searchTerm") String searchTerm){
+        try{
+            List<Article> filteredArticles = articleService.findAllByTitleContainsIgnoreCase(searchTerm);
+
+            if (filteredArticles.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(filteredArticles, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
