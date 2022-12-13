@@ -29,7 +29,7 @@ public class ArticleController {
             if (title == null) {
                 articles = articleService.getAllArticles();
             } else  {
-                articles = articleService.getAllArticlesByTitle(title);
+                articles = articleService.findAllByTitleContainsIgnoreCase(title);
             }
 
             if (articles.isEmpty()) {

@@ -53,8 +53,8 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public List<Article> getAllArticlesByTitle(String title) {
-        return articleRepository.findByTitle(title);
+    public List<Article> findAllByTitleContainsIgnoreCase(String title) {
+        return articleRepository.findAllByTitleContainsIgnoreCase(title);
     }
 
     public Article updateArticleById(long id, Article article) {

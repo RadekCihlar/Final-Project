@@ -13,7 +13,7 @@ public interface ArticleService {
 
     void deleteArticleById(long id);
 
-    List<Article> getAllArticlesByTitle(String title);
+    List<Article> findAllByTitleContainsIgnoreCase(String title);
 
     Article updateArticleById(long id, Article article);
 
