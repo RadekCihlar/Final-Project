@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -45,12 +47,25 @@ public class Article {
     @Column(name = "date")
     private LocalDateTime postedDateTime;
 
-    public Article(String title, String introText, String bodyText, String outroText, LocalDateTime postedDateTime) {
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Article(String title, String introText, String bodyText, String outroText, LocalDateTime postedDateTime, Category category) {
         this.title = title;
         this.introText = introText;
         this.bodyText = bodyText;
         this.outroText = outroText;
         this.postedDateTime = postedDateTime;
+        this.category = category;
     }
 
     public void setPostedDateTime(LocalDateTime postedDateTime) {

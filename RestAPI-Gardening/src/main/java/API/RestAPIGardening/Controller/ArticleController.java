@@ -55,7 +55,7 @@ public class ArticleController {
     public ResponseEntity<Article> createArticle(@RequestBody Article article) {
 
         try {
-            Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText(), article.getPostedDateTime()));
+            Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText(), article.getPostedDateTime(), article.getCategory()));
 
             return new ResponseEntity<>(_article, HttpStatus.CREATED);
         } catch (Exception e){
