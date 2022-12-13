@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class ArticleController {
     public ResponseEntity<Article> createArticle(@RequestBody Article article) {
 
         try {
-            Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText()));
+            Article _article = articleService.saveArticle(new Article(article.getTitle(),article.getIntroText(),article.getBodyText(), article.getOutroText(), article.getPostedDateTime()));
 
             return new ResponseEntity<>(_article, HttpStatus.CREATED);
         }catch (Exception e){
