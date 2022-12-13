@@ -6,6 +6,9 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity
 @Table(name = "articles")
 @JsonIgnoreProperties({"hibernateLazyInitializer"})// it will tell restapi to ignore stuff when we create article / nn author
@@ -39,6 +42,24 @@ public class Article {
     @Size(min = 15, max = 1000, message = "Text 'outro_text' can not be empty (15 - 1000 chars).")
     private String outroText;
 
+    @Column(name = "date")
+    private LocalDateTime postedDateTime;
+
+    public Article(String title, String introText, String bodyText, String outroText, LocalDateTime postedDateTime) {
+        this.title = title;
+        this.introText = introText;
+        this.bodyText = bodyText;
+        this.outroText = outroText;
+        this.postedDateTime = postedDateTime;
+    }
+
+    public void setPostedDateTime(LocalDateTime postedDateTime) {
+        this.postedDateTime = postedDateTime;
+    }
+    public LocalDateTime getPostedDateTime() {
+        return LocalDateTime.now();
+    }
+
     public Article() {
     }
 
@@ -64,7 +85,6 @@ public class Article {
     public void setTitle(String title) {
         this.title = title;
     }
-
     public String getIntroText() {
         return introText;
     }
