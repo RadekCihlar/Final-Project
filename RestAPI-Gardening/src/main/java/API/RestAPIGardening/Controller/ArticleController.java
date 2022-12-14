@@ -1,7 +1,9 @@
 package API.RestAPIGardening.Controller;
 
 import API.RestAPIGardening.Model.Article;
+import API.RestAPIGardening.Model.Category;
 import API.RestAPIGardening.Service.ArticleService;
+import API.RestAPIGardening.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -82,6 +84,21 @@ public class ArticleController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/categories/{categoryId}/articles")
+    public ResponseEntity <List<Article>> findAllArticlesByCategoryId(@PathVariable ("categoryId") long categoryId) {
+        try {
+            List<Article> articlesFromCategory = articleService.findAllArticlesByCategoryId(categoryId);
+
+            if (articlesFromCategory.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                return new ResponseEntity<>(articlesFromCategory, HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
