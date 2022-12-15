@@ -4,13 +4,14 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   font-family: sans-serif, basic-sans;
   font-size: 1em;
   line-height: 1.5;
   color: #333;
 
   min-height: 100vh;
-  
+
   display: flex;
   flex-direction: column;
 }
@@ -19,15 +20,15 @@ body {
   padding: 3em;
 }
 
-footer{
+footer {
   background-color: rgb(20, 92, 20);
-  color: white;
+  color: black;
   padding: 2em;
-
-  margin-top: auto;
 }
 
-.dataTable, .dataTable th, .dataTable td {
+.dataTable,
+.dataTable th,
+.dataTable td {
   border: 1px solid #000;
 }
 .dataTable {
@@ -36,14 +37,16 @@ footer{
   width: 1000px;
   margin: auto;
 }
-.dataTable th, .dataTable td {
+.dataTable th,
+.dataTable td {
   padding: 20px;
 }
 .dataTable th {
   background-color: black;
   color: white;
 }
-.dataTable th:nth-of-type(1), .dataTable th:nth-of-type(2) {
+.dataTable th:nth-of-type(1),
+.dataTable th:nth-of-type(2) {
   border-right: 1px solid white;
 }
 .dataTable tfoot td {
@@ -56,9 +59,9 @@ footer{
 .dataTable tbody tr:hover {
   cursor: pointer;
   background-color: #666;
-  color: white;   
+  color: white;
 }
 .topMenu .router-link-active {
-background-color: rgb(20, 92, 20);
-color: white;
+  background-color: rgb(20, 92, 20);
+  color: white;
 }
