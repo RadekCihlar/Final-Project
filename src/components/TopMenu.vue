@@ -7,16 +7,14 @@ export default {
     <nav class="topMenu">
         <ul>
             <section id ="container">
-            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/"></router-link></li>
             <li><router-link to="/home">Home</router-link></li>
             <!-- <li><router-link :to="{ name: 'Tabs'}">Tabs</router-link></li> -->
-<!--        <li><router-link to="/tabs">Tabs</router-link></li>  or nize s cestoui/jmenem -->
             <li><router-link to="/articles">Articles</router-link></li>
-            <li><router-link to="/articles">Links</router-link></li>
+            <li><router-link to="/articles">Categories</router-link></li>
             <li><router-link to="/home">News</router-link></li>
             <li><router-link to="/home">About us</router-link></li>
             <li><router-link to="/home">Contact</router-link></li>
-            <li><a href="https://duckduckgo.com/" target="_blank">DuckDuckGo</a></li>
             </section>
         </ul>
     </nav>
@@ -27,11 +25,10 @@ export default {
     list-style: none;
     /* text-transform: uppercase; */
     font-weight: 900;
-    line-height:  2.6;
+    line-height:  4.6;
     margin: -16px;
     padding: 0;
     text-align: center;
-    /* box-shadow: 0px 1px 10px white; */
 }
 .topMenu li {
     display: inline;
@@ -39,7 +36,7 @@ export default {
 .topMenu a {
     text-decoration: none;
     color: black;
-    padding: 40px 20px;
+    padding: 20px 20px;
     display: inline-block;
 }
 .topMenu a:hover {
@@ -50,10 +47,13 @@ export default {
     background-image: url('../assets/menu.webp');
 }
 a {
-  transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: inset 0 0 0 0 rgb(115, 150, 63);
+/*   padding: .25rem 0;
+  margin: -.25rem 0; */
+  transition: color .5s ease-in-out, box-shadow .25s ease-in-out;
 }
 a:hover {
   color: #fff;
-  box-shadow: inset 200px 0 0 0 rgb(133, 166, 69);
+  box-shadow: inset 50px 0 0 0 rgb(123, 166, 67);
 }
 </style>
