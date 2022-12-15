@@ -10,7 +10,7 @@ body {
   line-height: 1.5;
   color: #333;
 
-  min-height: 100vh;
+  min-height: 50vh;
 
   display: flex;
   flex-direction: column;
@@ -24,8 +24,8 @@ footer {
   background-color: rgb(123, 166, 67);
   color: black;
   padding: 2em;
-  position:relative;
   bottom: 0;
+  margin-top: auto;
 }
 
 .dataTable,

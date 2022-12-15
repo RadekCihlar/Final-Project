@@ -32,6 +32,10 @@ export default {
 <template>
   <HeaderMain />
   <main>
+
+    <body>
+
+    </body>
     <router-view></router-view>
 
   </main>
