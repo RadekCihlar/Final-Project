@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-            todos: [],
+            articles: [],
             totalArticles: 0
         };
     },
@@ -30,36 +30,11 @@ export default {
 }
 </script>
 <template>
-    <table class="dataTable">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Text Intro</th>
-                <th>Text Body</th>
-                <th>Text Outro</th>
-                <th>Created</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <!-- :key is for optimization, we providing it with primary id -->
-            <tr v-for="article of articles" :key="article.id"
-                @click="showInfo(article.id)">
-            <!-- ^ kdyz klikneme kamkoliv na radek invokujeme metodu s parametrem id -->
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.text intro}}</td>
-                <td>{{ article.text body}}</td>
-                <td>{{ article.text outro}}</td>
-                <td>{{ article.category }}</td>
+<tr v-for="article of articles" :key="article.id">
+                <!-- @click="showInfo(article.id)"> -->
+                <h2>{{ article.title }}, {{ article.category }}, {{article.postedDateTime}}</h2>
+                <p>{{ article.introText}}</p>
+                <p>{{ article.bodyText}}</p>
+                <p>{{ article.outroText}}</p>
                 </tr>
-        </tbody>
-
-        <tfoot>
-            <tr>
-                <td colspan="6">Total number of articles: <span>{{ totalArticles }}</span></td>
-            </tr>
-        </tfoot>
-    </table>
 </template>

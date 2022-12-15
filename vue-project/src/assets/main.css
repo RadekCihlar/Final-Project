@@ -5,13 +5,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif, basic-sans;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.5;
   color: #333;
-
   min-height: 50vh;
-
   display: flex;
   flex-direction: column;
 }
