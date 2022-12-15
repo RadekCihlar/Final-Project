@@ -61,7 +61,3 @@ footer {
   background-color: #666;
   color: white;
 }
-.topMenu .router-link-active {
-  background-color: rgb(20, 92, 20);
-  color: white;
-}

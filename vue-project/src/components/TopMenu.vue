@@ -25,7 +25,7 @@ export default {
     /* text-transform: uppercase; */
     font-weight: 900;
     line-height: 4.6;
-    padding-left: 0;
+    padding-left: 1px;
     text-align: center;
 }
 
@@ -40,28 +40,21 @@ export default {
     display: inline-block;
 }
 
-ul {
-    padding-left: 0;
-}
-
-.topMenu a:hover {
-    background-color: rgb(123, 166, 67);
-    color: white;
-}
-
 #container {
     background-image: url('../assets/menu.webp');
 }
 
 a {
-    box-shadow: inset 0 0 0 0 rgb(115, 150, 63);
-    /*   padding: .25rem 0;
-  margin: -.25rem 0; */
-    transition: color .5s ease-in-out, box-shadow .25s ease-in-out;
+    transition: color .4s ease-in-out, box-shadow .2s ease-in-oute;
+}
+
+ul {
+    padding-left: 0;
+    margin-top: 0;
 }
 
 a:hover {
     color: #fff;
-    box-shadow: inset 50px 0 0 0 rgb(123, 166, 67);
+    box-shadow: inset 0 0 0 0 rgb(123, 166, 67);
 }
 </style>
