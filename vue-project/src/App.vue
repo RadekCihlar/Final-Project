@@ -30,13 +30,13 @@ export default {
 };
 </script>
 <template>
-    <HeaderMain />
+  <HeaderMain />
   <main>
-    
     <router-view></router-view>
 
   </main>
-    <FooterMain />
+  <FooterMain />
 </template>
 <style>
+
 </style>

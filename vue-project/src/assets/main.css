@@ -21,9 +21,11 @@ body {
 }
 
 footer {
-  background-color: rgb(20, 92, 20);
+  background-color: rgb(123, 166, 67);
   color: black;
   padding: 2em;
+  position:relative;
+  bottom: 0;
 }
 
 .dataTable,

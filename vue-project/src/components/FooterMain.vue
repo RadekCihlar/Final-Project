@@ -15,42 +15,79 @@ export default {
      <footer>
           <div class="row">
                <div class="column">
-                    <h4>About us:</h4>
-                    <p>Sem se musím domluvit co zda něco nebo short about us: Jsme malej tým hodnej kluků </p>
+                    <div class="aboutUs">
+                         <h4>About us</h4>
+                         <p>We are small team of nice chaps that like some fine gardening and stuff :') </p>
+                    </div>
                </div>
                <div class="column">
                     <h4>Navigation</h4>
-                    <p>
-                         Sem přidat další navigaci menší menu, aby se dalo přeskakovat
-                    </p>
+                    <nav class="footerMenu">
+                         <ul class="footerMenuList">
+                              <li>
+                                   <router-link class="navigationLinks" to="/">Home</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/home">Articles</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/articles">Categories</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/articles">News</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/home">About us</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/home">Contacts</router-link>
+                              </li>
+                              <li>
+                                   <router-link class="navigationLinks" to="/home">Contact</router-link>
+                              </li>
+                              <li>
+                                   <a class="navigationLinks" href="https://duckduckgo.com/"
+                                        target="_blank">DuckDuckGo</a>
+                              </li>
+                         </ul>
+                    </nav>
                </div>
                <div class="column">
                     <div class="socialsContainer">
-                         <h4>Socials: </h4>
+                         <h4>Socials </h4>
                          <ul class="socials">
                               <li @mouseover="hoverF = false" @mouseleave="hoverF = true">
-                                   <img v-if="hoverF" class="icons" src="src/components/icons/Facebook.png"
-                                        alt="Facebook Icon">
-                                   <img v-else class="icons" src="src/components/icons/FacebookHover.png"
-                                        alt="Facebook Icon">
+                                   <a href="https://www.facebook.com/me" target="_blank">
+                                        <img v-if="hoverF" class="icons" src="src/components/icons/Facebook.png"
+                                             alt="Facebook Icon">
+                                        <img v-else class="icons" src="src/components/icons/FacebookHover.png"
+                                             alt="Facebook Icon">
+                                   </a>
                               </li>
                               <li @mouseover="hoverI = false" @mouseleave="hoverI = true">
-                                   <img v-if="hoverI" class="icons" src="src/components/icons/Instagram.png"
-                                        alt="Instagram Icon">
-                                   <img v-else class="icons" src="src/components/icons/InstagramHover.png"
-                                        alt="Instagram Icon">
+                                   <a href="https://www.instagram.com" target="_blank">
+                                        <img v-if="hoverI" class="icons" src="src/components/icons/Instagram.png"
+                                             alt="Instagram Icon">
+                                        <img v-else class="icons" src="src/components/icons/InstagramHover.png"
+                                             alt="Instagram Icon">
+                                   </a>
                               </li>
                               <li @mouseover="hoverT = false" @mouseleave="hoverT = true">
-                                   <img v-if="hoverT" class="icons" src="src/components/icons/Twitter.png"
-                                        alt="Twitter Icon">
-                                   <img v-else class="icons" src="src/components/icons/TwitterHover.png"
-                                        alt="Twitter Icon">
+                                   <a href="https://www.twitter.com" target="_blank">
+                                        <img v-if="hoverT" class="icons" src="src/components/icons/Twitter.png"
+                                             alt="Twitter Icon">
+                                        <img v-else class="icons" src="src/components/icons/TwitterHover.png"
+                                             alt="Twitter Icon">
+                                   </a>
                               </li>
                               <li @mouseover="hoverY = false" @mouseleave="hoverY = true">
-                                   <img v-if="hoverY" class="icons" src="src/components/icons/Youtube.png"
-                                        alt="Youtube Icon">
-                                   <img v-else class="icons" src="src/components/icons/YoutubeHover.png"
-                                        alt="Youtube Icon">
+                                   <a href="https://www.youtube.com" target="_blank">
+                                        <img v-if="hoverY" class="icons" src="src/components/icons/Youtube.png"
+                                             alt="Youtube Icon">
+                                        <img v-else class="icons" src="src/components/icons/YoutubeHover.png"
+                                             alt="Youtube Icon">
+                                   </a>
+
                               </li>
                          </ul>
                          <div>&copy; 2022 Luky & Radek </div>
@@ -64,11 +101,35 @@ export default {
      </footer>
 </template>
 <style scoped>
+.aboutUs {
+     padding: 20px;
+}
+
+.footerMenuList {
+     column-count: 2;
+     list-style: none;
+     padding-left: 0;
+     width: 65%;
+}
+
+.navigationLinks {
+     text-decoration: none;
+     color: black;
+     text-decoration-line: underline;
+}
+
+.navigationLinks:hover {
+     color: grey;
+}
+
+.footerMenu {
+     list-style: none;
+}
+
 .column {
      float: left;
-/* Bacha tady mi to může úteéct :() */
-     width: 30.33%;
-     padding: 10px;
+     /* Bacha tady mi to může úteéct :() */
+     width: 33.33%;
 }
 
 /* Clear floats after the columns */
