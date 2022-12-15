@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-            todos: [],
+            articles: [],
             totalArticles: 0
         };
     },
@@ -49,9 +49,9 @@ export default {
             <!-- ^ kdyz klikneme kamkoliv na radek invokujeme metodu s parametrem id -->
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
-                <td>{{ article.text intro}}</td>
-                <td>{{ article.text body}}</td>
-                <td>{{ article.text outro}}</td>
+                <td>{{ article.introText}}</td>
+                <td>{{ article.bodyText}}</td>
+                <td>{{ article.outroText}}</td>
                 <td>{{ article.category }}</td>
                 </tr>
         </tbody>
