@@ -89,6 +89,7 @@ public class ArticleController {
 
     @GetMapping("/categories/{categoryId}/articles")
     public ResponseEntity <List<Article>> findAllArticlesByCategoryId(@PathVariable ("categoryId") long categoryId) {
+
         try {
             List<Article> articlesFromCategory = articleService.findAllArticlesByCategoryId(categoryId);
 
