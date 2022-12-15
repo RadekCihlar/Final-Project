@@ -4,13 +4,11 @@ html {
 
 body {
   margin: 0;
-  font-family: sans-serif, basic-sans;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.5;
   color: #333;
-
   min-height: 100vh;
-  
   display: flex;
   flex-direction: column;
 }
@@ -19,19 +17,26 @@ body {
   padding: 3em;
 }
 
+header{
+  background-color: rgb(123, 166, 67);
+  color: white;
+  margin-top: auto;
+}
+
 footer{
-  background-color: rgb(20, 92, 20);
+  background-color: rgb(123, 166, 67);
   color: white;
   padding: 2em;
-
   margin-top: auto;
+  position: absolute;
+  bottom: 0;
 }
 
 .dataTable, .dataTable th, .dataTable td {
   border: 1px solid #000;
 }
 .dataTable {
-  /* border-spacing: 0; */
+  /* border-spacing: 15px; */
   border-collapse: collapse;
   width: 1000px;
   margin: auto;
@@ -58,7 +63,7 @@ footer{
   background-color: #666;
   color: white;   
 }
-.topMenu .router-link-active {
+/* .topMenu .router-link-active {
 background-color: rgb(20, 92, 20);
 color: white;
-}
+} */
