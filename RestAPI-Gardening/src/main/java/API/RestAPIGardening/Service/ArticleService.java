@@ -17,4 +17,5 @@ public interface ArticleService {
 
     Article updateArticleById(long id, Article article);
 
+    List<Article> findAllArticlesByCategoryId(long id);
 }

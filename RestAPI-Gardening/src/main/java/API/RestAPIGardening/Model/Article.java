@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "articles")

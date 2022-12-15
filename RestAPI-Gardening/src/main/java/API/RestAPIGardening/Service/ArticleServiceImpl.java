@@ -70,4 +70,9 @@ public class ArticleServiceImpl implements ArticleService{
         }
         return null;
     }
+
+    @Override
+    public List<Article> findAllArticlesByCategoryId(long categoryId) {
+        return articleRepository.findAllByCategoryId(categoryId);
+    }
 }

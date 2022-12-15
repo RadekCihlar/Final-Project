@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -18,7 +17,6 @@ public class Category {
     @NotNull
     @Length
     private String name;
-
 
 
     public Category() {
