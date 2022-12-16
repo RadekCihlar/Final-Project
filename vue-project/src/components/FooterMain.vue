@@ -117,14 +117,17 @@ export default {
 .navigationLinks {
      text-decoration: none;
      color: black;
-     text-decoration-line: underline;
+
 }
-h4{
+
+h4 {
      text-align: center;
+
 }
 
 .navigationLinks:hover {
      color: grey;
+     text-decoration: underline;
 }
 
 .footerMenu {
@@ -148,7 +151,7 @@ h4{
      width: 35px;
      height: 35px;
      margin-right: 4px;
-     
+
 }
 
 .socials {
