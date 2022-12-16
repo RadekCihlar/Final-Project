@@ -8,6 +8,5 @@ export default {
 </script>
 
 <template>
-    <h1>Articles Searched</h1>
     <ArticlesSearch></ArticlesSearch>
 </template>

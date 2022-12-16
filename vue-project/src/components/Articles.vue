@@ -33,7 +33,6 @@ export default {
 
     <body>
         <tr v-for="article of articles" :key="article.id">
-            <!-- @click="showInfo(article.id)"> -->
             <h2> Title: {{ article.title }}, Category: {{ article.category.name }}, Date: {{ article.postedDateTime }}
             </h2>
             <p>{{ article.introText }}</p>

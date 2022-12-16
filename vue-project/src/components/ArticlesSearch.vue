@@ -45,14 +45,22 @@ export default {
 <template>
 
     <body>
-        <tr v-for="article of articles" :key="article.id">
-            <!-- @click="showInfo(article.id)"> -->
-            <h2> Title: {{ article.title }}, Category: {{ article.category.name }}, Date: {{ article.postedDateTime }}
-            </h2>
-            <p>{{ article.introText }}</p>
-            <p>{{ article.bodyText }}</p>
-            <p>{{ article.outroText }}</p>
-        </tr>
+        <p v-if="!articles.length">
+        <h4>
+            No articles found with title: <span v-if="searchTerm === ''">EMPTY SEARCH! </span> <span v-else>
+                {{ searchTerm }}</span>
+        </h4>
+        </p>
+        <p v-else>
+            <tr v-for="article of articles" :key="article.id">
+                <h2> Title: {{ article.title }}, Category: {{ article.category.name }}, Date: {{ article.postedDateTime
+                }}
+                </h2>
+                <p>{{ article.introText }}</p>
+                <p>{{ article.bodyText }}</p>
+                <p>{{ article.outroText }}</p>
+            </tr>
+        </p>
     </body>
 
 </template>

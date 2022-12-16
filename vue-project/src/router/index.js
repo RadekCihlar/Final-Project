@@ -4,11 +4,11 @@ import HomeView from "../views/HomeView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
 import ArticlesSearchView from "../views/ArticlesSearchView.vue";
 import PageNotFoundView from "../views/PageNotFoundView.vue";
+import AboutUs from "../components/AboutUs.vue";
 
 /* import CardsView from '../views/CardsView.vue';*/
 
 const routes = [
-  
   { path: "/", name: "Home", component: HomeView },
   { path: "/home", redirect: "/" },
   { path: "/articles", name: "Articles", component: ArticlesView },
@@ -16,6 +16,11 @@ const routes = [
     path: "/ArticlesSearch",
     name: "SearchArticles",
     component: ArticlesSearchView,
+  },
+  {
+    path: "/AboutUs",
+    name: "AboutUsPage",
+    component: AboutUs,
   },
   { path: "/:patchMatch(.*)*", name: "404error", component: PageNotFoundView },
 
