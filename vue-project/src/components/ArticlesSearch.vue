@@ -3,7 +3,8 @@ export default {
     data() {
         return {
             articles: [],
-            totalArticles: 0
+            totalArticles: 0,
+            searchTerm: this.$route.query.searchTerm,
         };
     },
     methods: {
@@ -11,7 +12,7 @@ export default {
             // fetch od Axios
             try {
                 // Fetch returns a promise (assynchronous)
-                let response = await fetch( 'http://localhost:8080/api/articles' );
+                let response = await fetch( 'http://localhost:8080/api/articles/search/' + this.$route.query.searchTerm );
                 this.articles = await response.json();
                 this.totalArticles = this.articles.length;
                 console.log( this.articles );
@@ -22,10 +23,22 @@ export default {
         },
         showInfo( idValue ) {
             this.$router.push( { name: 'Article', params: { id: idValue } } );
+        },
+        refreshPage() {
+            location.reload()
         }
     },
     created() {
-        this.getArticles() // when we load compononent this method runs
+        this.getArticles()
+        // when we load compononent this method runs
+    },
+    watch: {
+        '$route': {
+            handler( newValue, oldValue ) {
+                location.reload()
+            },
+            deep: true
+        }
     }
 }
 </script>

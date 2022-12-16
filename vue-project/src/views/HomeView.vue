@@ -1,3 +1,5 @@
 <template>
-  <h1>Welcome page!</h1>
+  <body>
+    <h1>intro page</h1>
+  </body>
 </template>

@@ -9,7 +9,7 @@ body {
   font-size: 1em;
   line-height: 1.5;
   color: #333;
-  min-height: 50vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
 }

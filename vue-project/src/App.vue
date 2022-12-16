@@ -33,9 +33,7 @@ export default {
   <HeaderMain />
   <main>
 
-    <body>
 
-    </body>
     <router-view></router-view>
 
   </main>

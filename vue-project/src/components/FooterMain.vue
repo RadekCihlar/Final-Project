@@ -29,19 +29,19 @@ export default {
                                    <router-link class="navigationLinks" to="/">Home</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">Articles</router-link>
+                                   <router-link class="navigationLinks" to="/articles">Articles</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/articles">Categories</router-link>
+                                   <router-link class="navigationLinks" to="/categories">Categories</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/articles">News</router-link>
+                                   <router-link class="navigationLinks" to="/news">News</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">About us</router-link>
+                                   <router-link class="navigationLinks" to="/aboutus">About us</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">Contacts</router-link>
+                                   <router-link class="navigationLinks" to="/contacts">Contacts</router-link>
                               </li>
                               <li>
                                    <router-link class="navigationLinks" to="/home">Contact</router-link>
@@ -110,7 +110,7 @@ export default {
      column-count: 2;
      list-style: none;
      padding-left: 0;
-     width: 65%;
+     width: 50%;
      margin: 0 auto;
 }
 
