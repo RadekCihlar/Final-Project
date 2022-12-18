@@ -37,7 +37,7 @@ export default {
 
     </body>
     <router-view></router-view>
-
+    </body>
   </main>
   <FooterMain />
 </template>
