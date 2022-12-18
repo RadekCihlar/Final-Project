@@ -11,6 +11,7 @@ export default {
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
                 <li><router-link to="/articles">Categories</router-link></li>
+                <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/home">News</router-link></li>
                 <li><router-link to="/home">About us</router-link></li>
                 <li><router-link to="/home">Contact</router-link></li>
@@ -27,6 +28,7 @@ export default {
     line-height: 4.6;
     padding-left: 0;
     text-align: center;
+    top: 0;
 }
 
 .topMenu li {
@@ -42,26 +44,18 @@ export default {
 
 ul {
     padding-left: 0;
+    margin-top: 0;
 }
-
-.topMenu a:hover {
-    background-color: rgb(123, 166, 67);
-    color: white;
-}
-
 #container {
     background-image: url('../assets/menu.webp');
 }
 
 a {
-    box-shadow: inset 0 0 0 0 rgb(115, 150, 63);
-    /*   padding: .25rem 0;
-  margin: -.25rem 0; */
-    transition: color .5s ease-in-out, box-shadow .25s ease-in-out;
+    transition: color .6s ease-in-out, box-shadow .2s ease-in-out;
 }
 
 a:hover {
     color: #fff;
-    box-shadow: inset 50px 0 0 0 rgb(123, 166, 67);
+    box-shadow: inset 0 0 0 0 rgb(123, 166, 67);
 }
 </style>
