@@ -1,4 +1,5 @@
 <script>
+
 export default {
      data() {
           return {
@@ -28,19 +29,19 @@ export default {
                                    <router-link class="navigationLinks" to="/">Home</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">Articles</router-link>
+                                   <router-link class="navigationLinks" to="/articles">Articles</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/articles">Categories</router-link>
+                                   <router-link class="navigationLinks" to="/categories">Categories</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/articles">News</router-link>
+                                   <router-link class="navigationLinks" to="/news">News</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">About us</router-link>
+                                   <router-link class="navigationLinks" to="/aboutus">About us</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">Contacts</router-link>
+                                   <router-link class="navigationLinks" to="/contacts">Contacts</router-link>
                               </li>
                               <li>
                                    <router-link class="navigationLinks" to="/home">Contact</router-link>
@@ -90,7 +91,7 @@ export default {
 
                               </li>
                          </ul>
-                         <div>&copy; 2022 Luky & Radek </div>
+                         <div class="copyright">&copy; 2022 Luky & Radek </div>
                     </div>
 
                     <!-- site map, social networks, legal stuff -->
@@ -102,24 +103,31 @@ export default {
 </template>
 <style scoped>
 .aboutUs {
-     padding: 20px;
+     padding-right: 20%;
 }
 
 .footerMenuList {
      column-count: 2;
      list-style: none;
      padding-left: 0;
-     width: 65%;
+     width: 50%;
+     margin: 0 auto;
 }
 
 .navigationLinks {
      text-decoration: none;
      color: black;
-     text-decoration-line: underline;
+
+}
+
+h4 {
+     text-align: center;
+
 }
 
 .navigationLinks:hover {
      color: grey;
+     text-decoration: underline;
 }
 
 .footerMenu {
@@ -143,6 +151,7 @@ export default {
      width: 35px;
      height: 35px;
      margin-right: 4px;
+
 }
 
 .socials {
@@ -150,10 +159,10 @@ export default {
      display: flex;
      flex-direction: row;
      padding-left: 0;
+     justify-content: center;
 }
 
 .socialsContainer {
-
      background: none;
 }
 

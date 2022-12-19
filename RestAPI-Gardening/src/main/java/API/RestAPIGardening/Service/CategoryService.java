@@ -1,7 +1,6 @@
 package API.RestAPIGardening.Service;
 
 import API.RestAPIGardening.Model.Category;
-import API.RestAPIGardening.Model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

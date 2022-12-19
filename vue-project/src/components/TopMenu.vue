@@ -1,31 +1,48 @@
 <script>
 export default {
-
+    data() {
+        return {
+            searchTerm: "",
+        }
+    },
+    methods: {
+    }
 }
+
 </script>
 <template>
     <nav class="topMenu">
-        <ul>
-            <section id="container">
+        <section id="container">
+            <ul>
+
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
-                <li><router-link to="/articles">Categories</router-link></li>
-                <li><router-link to="/home">News</router-link></li>
-                <li><router-link to="/home">About us</router-link></li>
-                <li><router-link to="/home">Contact</router-link></li>
-            </section>
-        </ul>
+                <li><router-link to="/categories">Categories</router-link></li>
+                <li><router-link to="/news">News</router-link></li>
+                <li><router-link to="/AboutUs">About us</router-link></li>
+                <li><router-link to="/Contact">Contact</router-link></li>
+
+                <li class="search">
+                    <input type="text" v-model="searchTerm">
+                    <img @click="this.$router.push({
+                        name: 'SearchArticles',
+                        query: {
+                            searchTerm: searchTerm,
+                        }
+                    }), this.searchTerm = ''" src="src/components/icons/searchIcon.png" alt="Search">
+                </li>
+            </ul>
+        </section>
     </nav>
 </template>
 <style scoped>
 .topMenu {
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
-    /* text-transform: uppercase; */
     font-weight: 900;
     line-height: 4.6;
-    padding-left: 0;
+    padding-left: 1px;
     text-align: center;
 }
 
@@ -40,28 +57,35 @@ export default {
     display: inline-block;
 }
 
-ul {
-    padding-left: 0;
-}
-
-.topMenu a:hover {
-    background-color: rgb(123, 166, 67);
-    color: white;
-}
-
 #container {
     background-image: url('../assets/menu.webp');
 }
 
 a {
-    box-shadow: inset 0 0 0 0 rgb(115, 150, 63);
-    /*   padding: .25rem 0;
-  margin: -.25rem 0; */
-    transition: color .5s ease-in-out, box-shadow .25s ease-in-out;
+    transition: color .4s ease-in-out, box-shadow .2s ease-in-oute;
+}
+
+ul {
+    padding-left: 0;
+    margin-top: 0;
+
 }
 
 a:hover {
     color: #fff;
-    box-shadow: inset 50px 0 0 0 rgb(123, 166, 67);
+    box-shadow: inset 0 0 0 0 rgb(123, 166, 67);
+}
+
+.search {
+    flex: auto;
+    justify-content: right;
+
+}
+
+img {
+    width: 1%;
+    height: 1%;
+    margin-left: 3px;
+    cursor: pointer;
 }
 </style>

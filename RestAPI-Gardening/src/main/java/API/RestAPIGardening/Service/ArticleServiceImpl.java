@@ -75,4 +75,9 @@ public class ArticleServiceImpl implements ArticleService{
     public List<Article> findAllArticlesByCategoryId(long categoryId) {
         return articleRepository.findAllByCategoryId(categoryId);
     }
+
+    @Override
+    public List<Article> findAllByOrderByIdDesc() {
+        return articleRepository.findAllByOrderByIdDesc();
+    }
 }

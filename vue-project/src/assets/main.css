@@ -9,7 +9,7 @@ body {
   font-size: 1em;
   line-height: 1.5;
   color: #333;
-  min-height: 50vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
 }
@@ -59,9 +59,5 @@ footer {
 .dataTable tbody tr:hover {
   cursor: pointer;
   background-color: #666;
-  color: white;
-}
-.topMenu .router-link-active {
-  background-color: rgb(20, 92, 20);
   color: white;
 }
