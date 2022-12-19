@@ -38,6 +38,20 @@ public class ArticleController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/articles/newest")
+    public ResponseEntity<List<Article>> findAllByOrderByIdDesc(){
+        try{
+            List<Article> articles = articleService.findAllByOrderByIdDesc();
+
+            if (articles.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(articles, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @GetMapping("/articles/search/{searchTerm}")
     public ResponseEntity<List<Article>> getAllArticlesByTitle(@PathVariable("searchTerm") String searchTerm){
