@@ -1,88 +1,54 @@
-package API.RestAPIGardening.Controller;
+package com.brights.vuesecurityservice.user;
 
-import API.RestAPIGardening.Model.User;
-import API.RestAPIGardening.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
 
-    private UserService userService;
-    @Autowired
+    private final UserService userService;
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> users = userService.findAll();
-
-        if (users.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    @GetMapping
+    public List<UserDTO> users() {
+        return this.userService.findAll()
+                .stream()
+                .map(UserDTO::fromEntity)
+                .toList();
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") long id){
-        User user = userService.findById(id);
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserDTO> getById(@PathVariable Long userId) {
+        Optional<User> userOptional = this.userService.findById(userId);
 
-        if (user == null){
-            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
-
-    @PostMapping("/user")
-    public ResponseEntity<User> saveUser(@RequestBody User user){
-        try{
-            // encrypt the password here //TODO
-            User _user = userService.saveUser(new User(user.getUsername(), user.getPassword()));
-
-            return new ResponseEntity<>(_user, HttpStatus.OK);
-        } catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (userOptional.isPresent()) {
+            return ResponseEntity.ok(userOptional.map(UserDTO::fromEntity).get());
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
-    @PutMapping("/user/{id}")
-    private ResponseEntity<User> updateUserById(@PathVariable("id") long id,
-                                                        @RequestBody User user){
-        User _user = userService.updateUserById(id, user);
-
-        if (_user == null){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<>(_user, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/user/{id}")
-    private ResponseEntity<HttpStatus> deleteUserById(@PathVariable("id") long id){
-        try{
-            userService.deleteById(id);
-            return new ResponseEntity<>( HttpStatus.OK);
-        } catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @GetMapping("/user/search/{searchTerm}")
-    private ResponseEntity<List<User>> searchForUsers(@PathVariable("searchTerm") String searchTerm){
-        List<User> usersLike = userService.findAllByUsernameContainsIgnoreCase(searchTerm);
-
-
-        if (usersLike.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    @GetMapping("/me")
+    public ResponseEntity<UserDTO> me(Principal principal) {
+        if (principal != null) {
+            Optional<User> userOptional = this.userService.findByUsername(principal.getName());
+            if (userOptional.isPresent()) {
+                return ResponseEntity.ok(userOptional.map(UserDTO::fromEntity).get());
+            }
         }
 
-        return new ResponseEntity<>(usersLike, HttpStatus.OK);
+        return ResponseEntity.notFound().build();
     }
+
 }

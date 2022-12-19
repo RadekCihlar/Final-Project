@@ -1,31 +1,20 @@
-package API.RestAPIGardening.Model;
-
+package com.brights.vuesecurityservice.user;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
-
-import java.util.Collection;
 
 @Entity
-@Table(name = "users")
-public class User{
+@Table(name = "users") // "user" is a protected keyword in h2, that's why we're using "users"
+public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "username", unique = false)
-    @NotEmpty
-    @NotNull
-    @Length(min = 3, max = 20)
     private String username;
-    @Column(name = "password", unique = false)
-    @NotEmpty
-    @NotNull
-    @Length(min = 8)
-    private String Password;
+
+    private String password;
+
+    private boolean isAdmin;
 
     public Long getId() {
         return id;
@@ -33,15 +22,6 @@ public class User{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-
-    public User() {
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        Password = password;
     }
 
     public String getUsername() {
@@ -53,10 +33,18 @@ public class User{
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.isAdmin = admin;
     }
 }
