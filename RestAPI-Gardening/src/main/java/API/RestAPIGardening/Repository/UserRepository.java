@@ -1,5 +1,6 @@
-package com.brights.vuesecurityservice.user;
+package API.RestAPIGardening.Repository;
 
+import API.RestAPIGardening.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

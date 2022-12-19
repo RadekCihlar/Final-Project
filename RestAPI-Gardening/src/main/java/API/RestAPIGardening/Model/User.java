@@ -1,4 +1,4 @@
-package com.brights.vuesecurityservice.user;
+package API.RestAPIGardening.Model;
 
 import jakarta.persistence.*;
 

@@ -1,10 +1,10 @@
-package com.brights.vuesecurityservice.user;
+package API.RestAPIGardening.Controller;
 
+import API.RestAPIGardening.Model.User;
+import API.RestAPIGardening.Model.UserDTO;
+import API.RestAPIGardening.Service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin("http://localhost:5173/")
 public class UserController {
 
     private final UserService userService;
@@ -50,5 +51,7 @@ public class UserController {
 
         return ResponseEntity.notFound().build();
     }
+
+
 
 }

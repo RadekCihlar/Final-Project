@@ -5,24 +5,108 @@ import ArticlesView from "../views/ArticlesView.vue";
 import ArticlesSearchView from "../views/ArticlesSearchView.vue";
 import PageNotFoundView from "../views/PageNotFoundView.vue";
 import AboutUs from "../components/AboutUs.vue";
+import Register from "../components/RegistrationForm.vue";
+import Login from "../components/LoginForm.vue";
+import Logout from "../components/LogoutButton.vue";
 
-/* import CardsView from '../views/CardsView.vue';*/
 
 const routes = [
-  { path: "/", name: "Home", component: HomeView },
-  { path: "/home", redirect: "/" },
-  { path: "/articles", name: "Articles", component: ArticlesView },
+  {
+    path: "/",
+    name: "Home",
+    component: HomeView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/home",
+    redirect: "/",
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/articles",
+    name: "Articles",
+    component: ArticlesView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
   {
     path: "/ArticlesSearch",
     name: "SearchArticles",
     component: ArticlesSearchView,
+    meta: {
+      requiresAuth: false,
+    },
   },
   {
     path: "/AboutUs",
     name: "AboutUsPage",
     component: AboutUs,
+    meta: {
+      requiresAuth: false,
+    },
   },
-  { path: "/:patchMatch(.*)*", name: "404error", component: PageNotFoundView },
+  {
+    name: "register",
+    path: "/register",
+    component: Register,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    name: "login",
+    path: "/login",
+    component: Login,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    name: "logout",
+    path: "/logout",
+    component: Logout,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+/*   {
+    name: "userList",
+    path: "/user",
+    component: UserList,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: "userInfo",
+    path: "/user/:userId",
+    component: UserInfo,
+    props: (route) => ({ userId: Number(route.params.userId) }),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: "profile",
+    path: "/profile",
+    component: UserProfile,
+    meta: {
+      requiresAuth: true,
+    },
+  }, */
+  {
+    path: "/:patchMatch(.*)*",
+    name: "404error",
+    component: PageNotFoundView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
 
   /*    { path: '/articles/:id', name: 'Article', component: ArticleView},*/
 ];
