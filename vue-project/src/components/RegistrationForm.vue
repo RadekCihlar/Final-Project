@@ -22,7 +22,7 @@ export default defineComponent( {
     ...mapStores( useAuthStore ),
     valid() {
       const usernameValid = this.registrationData.username.length > 0;
-      const passwordValid = this.registrationData.password1.length > 3
+      const passwordValid = this.registrationData.password1.length > 7
       const passwordRepeatValid = this.registrationData.password1 === this.registrationData.password2
       return usernameValid && passwordValid && passwordRepeatValid;
     },
@@ -32,18 +32,12 @@ export default defineComponent( {
       this.error = null;
       this.authStore.register( this.registrationData )
         .then( data => {
-
-          localStorage.setItem( 'authStore', JSON.stringify( this.registrationData.username ) )
+          window.location.replace( '/' ),
+            localStorage.setItem( 'authStore', JSON.stringify( this.registrationData.username ) )
           this.authStore.currentUser = this.registrationData.username
           this.response = data;
-          location.reload();
-
         } )
-        .then( this.$router.push( { path: '/' } ),
-          alert( "OK" ) )
-        .catch( error => {
-          this.error = error.message
-        } )
+        .catch( error => this.error = { message: "Account already exists" } )
     }
   }
 } );
@@ -56,6 +50,9 @@ export default defineComponent( {
         <span>Username</span>
         <input type="text" id="username" autocomplete="username" v-model="registrationData.username">
       </label>
+      <ul>
+        <li v-if="registrationData.username === ''">Username cannot be empty</li>
+      </ul>
 
       <label for="password1">
         <span>Password</span>
@@ -66,6 +63,11 @@ export default defineComponent( {
         <span>Password repeat</span>
         <input type="password" id="password2" autocomplete="new-password" v-model="registrationData.password2">
       </label>
+      <ul>
+        <li v-if="registrationData.password1 !== registrationData.password2">Passwords do not match</li>
+        <li v-if="registrationData.password1.length < 8 || registrationData.password2.length < 8">Password needs to be
+          atleast 8 characters long</li>
+      </ul>
 
       <button type="submit" :disabled="!valid">Register</button>
     </fieldset>
