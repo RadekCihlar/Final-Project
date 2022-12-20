@@ -4,8 +4,7 @@ import { useAuthStore } from "@/store/auth";
 import HomeView from "../views/HomeView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
 import ArticlesSearchView from "../views/ArticlesSearchView.vue";
-import ArticlesView from '../views/ArticlesView.vue';
-import GalleryView from '../views/GalleryView.vue';
+import GalleryView from "../views/GalleryView.vue";
 import PageNotFoundView from "../views/PageNotFoundView.vue";
 import AboutUs from "../components/AboutUs.vue";
 import Register from "../components/RegistrationForm.vue";
@@ -28,10 +27,13 @@ const routes = [
       requiresAuth: false,
     },
   },
-  { path: '/gallery', name: 'Gallery', component: GalleryView, 
-  meta: {
-  requiresAuth: false,
-   },
+  {
+    path: "/gallery",
+    name: "Gallery",
+    component: GalleryView,
+    meta: {
+      requiresAuth: false,
+    },
   },
   {
     path: "/articles",
@@ -41,10 +43,14 @@ const routes = [
       requiresAuth: false,
     },
   },
-  { path: '/articles/{id}', name: 'Article', component: ArticleView,meta: {
+  {
+    path: "/articles/{id}",
+    name: "Article",
+    component: ArticlesView,
+    meta: {
       requiresAuth: false,
     },
-    },
+  },
   {
     path: "/ArticlesSearch",
     name: "SearchArticles",

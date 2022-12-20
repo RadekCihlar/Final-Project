@@ -52,13 +52,18 @@ export default {
         </h4>
         </p>
         <p v-else>
-            <tr v-for="article of articles" :key="article.id">
-                <h2> Title: {{ article.title }}, Category: {{ article.category.name }}, Date: {{ article.postedDateTime
-                }}
-                </h2>
-                <p>{{ article.introText }}</p>
-                <p>{{ article.bodyText }}</p>
-                <p>{{ article.outroText }}</p>
+            <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
+                <div>
+                    <h1 :id='article.id'>{{ article.title }}
+                        <hr>
+                    </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }},
+                        Posted: {{
+                                articleDate
+                        }}</h2>
+                    <p>{{ article.introText }}</p>
+                    <p>{{ article.bodyText }}</p>
+                    <p>{{ article.outroText }}</p>
+                </div>
             </tr>
         </p>
     </body>
@@ -66,7 +71,38 @@ export default {
 </template>
 
 <style scoped>
+div {
+    margin: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    border: 0px solid black;
+}
 
+h1,
+h2 {
+    text-indent: 2em;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    text-indent: 2em;
+}
+
+hr {
+    width: 80%;
+    float: right;
+    margin-top: 15px;
+}
+
+h2.remove-whitespace {
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+    height: 25px;
+}
 </style>
 
 

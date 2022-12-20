@@ -11,7 +11,7 @@ export default {
     },
     computed: {
         articleDate() {
-            return new Date(this.article.postedDateTime).toDateString()
+            return new Date( this.article.postedDateTime ).toDateString()
         }
     },
     methods: {
@@ -28,8 +28,8 @@ export default {
                 console.log( "Error=", error );
             }
         },
-        showInfo(idValue) {
-            this.$router.push({ name: 'Article', params: { id: idValue } });
+        showInfo( idValue ) {
+            this.$router.push( { name: 'Article', params: { id: idValue } } );
         }
     },
     created() {
@@ -43,7 +43,9 @@ export default {
         <div>
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
-            </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{ articleDate }}</h2>
+            </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+                    articleDate
+            }}</h2>
             <p>{{ article.introText }}</p>
             <p>{{ article.bodyText }}</p>
             <p>{{ article.outroText }}</p>
