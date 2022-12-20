@@ -8,6 +8,8 @@ export default {
 </script>
 
 <template>
-    <h1>Articles</h1>
+    <div class="menu">
+        <h1>All articles</h1>
+    </div>
     <Articles></Articles>
 </template>
