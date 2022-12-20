@@ -20,7 +20,10 @@ export default defineComponent( {
   methods: {
     login() {
       this.authStore.login( this.user )
-        .then( () => this.authStore.commit( 'user', this.user ), this.$router.push( { path: '/' }, alert( "You have been logeed as: " + this.user.username ) ) )
+        .then( () => this.authStore.currentUser = this.user,
+          localStorage.setItem( 'authStore', JSON.stringify( this.user.username ) ),
+          location.reload(),
+          this.$router.push( { path: '/' }, alert( "You have been logeed as: " + this.user.username ) ) )
         .catch( error => this.error = { message: "Login failed." } )
     },
   },

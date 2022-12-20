@@ -8,6 +8,9 @@ export default defineComponent( {
     data() {
         return {
             searchTerm: "",
+            // This row lets us get information for loggedUsername
+            loggedUsername: JSON.parse( localStorage.getItem( 'authStore' ) )
+
         }
     },
     computed: {
@@ -19,7 +22,8 @@ export default defineComponent( {
 
 </script>
 <template>
-    <p>{{ authStore.user }}</p>
+    <p>{{ authStore.isAuthenticated ? "Current username is: " + loggedUsername : "" }}</p>
+
     <nav class="topMenu">
         <ul v-if="!authStore.$state.isAuthenticated">
             <li><router-link to="/login">Login</router-link></li>
@@ -33,7 +37,7 @@ export default defineComponent( {
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
-                 <li><router-link to="/gallery">Gallery</router-link></li>
+                <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/categories">Categories</router-link></li>
                 <li><router-link to="/news">News</router-link></li>
                 <li><router-link to="/AboutUs">About us</router-link></li>

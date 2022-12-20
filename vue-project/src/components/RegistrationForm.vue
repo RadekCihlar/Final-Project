@@ -32,9 +32,15 @@ export default defineComponent( {
       this.error = null;
       this.authStore.register( this.registrationData )
         .then( data => {
+
+          localStorage.setItem( 'authStore', JSON.stringify( this.registrationData.username ) )
+          this.authStore.currentUser = this.registrationData.username
           this.response = data;
-          this.$router.push( { path: '/' } ), alert( "OK" );
+          location.reload();
+
         } )
+        .then( this.$router.push( { path: '/' } ),
+          alert( "OK" ) )
         .catch( error => {
           this.error = error.message
         } )

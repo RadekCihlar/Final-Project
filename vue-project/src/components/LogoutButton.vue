@@ -7,7 +7,9 @@ export default defineComponent( {
   methods: {
     logout() {
       this.authStore.logout()
-        .then( () => this.$router.push( { path: '/' } ) )
+        .then( () =>
+          localStorage.removeItem( 'authStore' ),
+          this.$router.push( { path: '/' } ) )
         .then( alert( "Logged Out!" ) )
     },
   },
