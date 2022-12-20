@@ -60,7 +60,6 @@ public class WebSecurityConfiguration {
                 .requestMatchers("/api/users/**").authenticated()
                 .requestMatchers("/api/messages").authenticated()
                 .requestMatchers("/api/**").permitAll() */
-
                 .anyRequest().permitAll());
 
         http.cors().and()
