@@ -4,7 +4,7 @@ export default {
         return {
             articles: [],
             article: {
-                postedDateTime: 1671456609000
+                postedDateTime: 1671499609000,
             },
             totalArticles: 0
         };
@@ -34,24 +34,21 @@ export default {
     },
     created() {
         this.getArticles() // when we load compononent this method runs
-    }
+    },
 }
 </script>
 <template>
     <!-- @click="showInfo(article.id)"> -->
-    <tr v-for="article of articles" :key="article.id">
+    <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
         <div>
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
-            </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
-                    articleDate
-            }}</h2>
+            </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{ articleDate }}</h2>
             <p>{{ article.introText }}</p>
             <p>{{ article.bodyText }}</p>
             <p>{{ article.outroText }}</p>
         </div>
     </tr>
-
 </template>
 
 <style scoped>

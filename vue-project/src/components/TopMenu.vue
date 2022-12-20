@@ -50,6 +50,15 @@ ul {
     background-image: url('../assets/menu.webp');
 }
 
+.logo {
+    background-image: url("src/assets/img/clover.png");
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 a {
     transition: color .6s ease-in-out, box-shadow .2s ease-in-out;
 }
