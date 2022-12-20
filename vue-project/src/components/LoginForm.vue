@@ -29,7 +29,8 @@ export default defineComponent( {
     valid() {
       return this.user.username.length > 0 && this.user.password.length > 0;
     },
-  }
+  },
+
 } );
 </script>
 

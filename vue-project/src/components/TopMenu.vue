@@ -1,20 +1,27 @@
 <script>
-export default {
+import { defineComponent } from "vue";
+import { mapStores } from "pinia";
+import { useAuthStore } from "@/store/auth";
+
+export default defineComponent( {
     data() {
         return {
             searchTerm: "",
         }
     },
-    methods: {
+    computed: {
+        ...mapStores( useAuthStore )
     }
-}
+},
+
+);
 
 </script>
 <template>
     <nav class="topMenu">
+        <p>{{ authStore.$state }}</p>
         <section id="container">
             <ul>
-
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
