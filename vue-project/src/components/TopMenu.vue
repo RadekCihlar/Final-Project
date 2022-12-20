@@ -3,6 +3,7 @@ import { defineComponent } from "vue";
 import { mapStores } from "pinia";
 import { useAuthStore } from "@/store/auth";
 
+
 export default defineComponent( {
     data() {
         return {
@@ -18,8 +19,15 @@ export default defineComponent( {
 
 </script>
 <template>
+    <p>{{ authStore.user }}</p>
     <nav class="topMenu">
-        <p>{{ authStore.$state }}</p>
+        <ul v-if="!authStore.$state.isAuthenticated">
+            <li><router-link to="/login">Login</router-link></li>
+            <li><router-link to="/register">Sign up</router-link></li>
+        </ul>
+        <ul v-else>
+            <li><router-link to="/logout">Logout</router-link></li>
+        </ul>
         <section id="container">
             <ul>
                 <li><router-link to="/"></router-link></li>

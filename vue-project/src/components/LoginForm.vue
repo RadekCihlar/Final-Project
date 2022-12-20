@@ -20,7 +20,7 @@ export default defineComponent( {
   methods: {
     login() {
       this.authStore.login( this.user )
-        .then( () => this.$router.push( { path: '/' }, alert( "You have been logeed as user: " + this.user.username ) ) )
+        .then( () => this.authStore.commit( 'user', this.user ), this.$router.push( { path: '/' }, alert( "You have been logeed as: " + this.user.username ) ) )
         .catch( error => this.error = { message: "Login failed." } )
     },
   },
@@ -29,8 +29,7 @@ export default defineComponent( {
     valid() {
       return this.user.username.length > 0 && this.user.password.length > 0;
     },
-  },
-
+  }
 } );
 </script>
 

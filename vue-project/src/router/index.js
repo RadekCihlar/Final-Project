@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, useRoute } from "vue-router";
+import { useAuthStore } from "@/store/auth";
 
 import HomeView from "../views/HomeView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
@@ -8,7 +9,6 @@ import AboutUs from "../components/AboutUs.vue";
 import Register from "../components/RegistrationForm.vue";
 import Login from "../components/LoginForm.vue";
 import Logout from "../components/LogoutButton.vue";
-
 
 const routes = [
   {
@@ -74,7 +74,7 @@ const routes = [
       requiresAuth: true,
     },
   },
-/*   {
+  /*   {
     name: "userList",
     path: "/user",
     component: UserList,
@@ -116,3 +116,10 @@ const router = createRouter({
   routes,
 });
 export default router;
+
+router.beforeEach((to, _) => {
+  const authStore = useAuthStore();
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    return { name: "login" };
+  }
+});
