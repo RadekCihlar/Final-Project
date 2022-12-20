@@ -18,25 +18,36 @@ export default defineComponent( {
     }
   },
   methods: {
-    login() {
+    /* login() {
       this.authStore.login( this.user )
         .then( () => this.authStore.currentUser = this.user,
-          localStorage.setItem( 'authStore', JSON.stringify( this.user.username ) ),
-          location.reload(),
-          this.$router.push( { path: '/' }, alert( "You have been logeed as: " + this.user.username ) ) )
+          localStorage.setItem( 'authStore', JSON.stringify( this.user.username ) ) )
         .catch( error => this.error = { message: "Login failed." } )
+        .then(
+          this.$router.push( { path: '/' }, alert( "You have been logeed as: " + this.user.username ) ) )
+    }, */
+    login() {
+      this.authStore.login( this.user )
+        .then( () =>
+          window.location.replace( '/' ),
+          localStorage.setItem( 'authStore', JSON.stringify( this.user.username ) ),
+        )
+        .catch( error => this.error = { message: "Username or Password incorrect." } )
     },
+
   },
   computed: {
     ...mapStores( useAuthStore ),
     valid() {
       return this.user.username.length > 0 && this.user.password.length > 0;
     },
-  }
-} );
+  },
+}
+);
 </script>
 
 <template>
+  <p>To have full access to the page. Please log in!</p>
   <form @submit.prevent="login" v-if="!authStore.isAuthenticated">
     <fieldset>
       <label for="username">
@@ -54,11 +65,15 @@ export default defineComponent( {
   </form>
 
   <ErrorMessage v-if="error?.message" :error="error" />
+
+
 </template>
 
 <style scoped>
 fieldset {
   border: 0;
+  flex: auto;
+  justify-content: center;
 }
 
 fieldset>label {
