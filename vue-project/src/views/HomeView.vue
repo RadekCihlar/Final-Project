@@ -1,5 +1,6 @@
 <template>
 
+
   <body>
     <div class="menu">
       <h1>Welcome page!</h1>
@@ -30,3 +31,4 @@ img:hover {
 
 }
 </style>
+

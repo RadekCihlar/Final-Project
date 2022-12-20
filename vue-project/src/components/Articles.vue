@@ -19,13 +19,13 @@ export default {
             // fetch od Axios
             try {
                 // Fetch returns a promise (assynchronous)
-                let response = await fetch('http://localhost:8080/api/articles');
+                let response = await fetch( 'http://localhost:8080/api/articles' );
                 this.articles = await response.json();
                 this.totalArticles = this.articles.length;
-                console.log(this.articles);
+                console.log( this.articles );
 
-            } catch (error) {
-                console.log("Error=", error);
+            } catch ( error ) {
+                console.log( "Error=", error );
             }
         },
         showInfo(idValue) {
