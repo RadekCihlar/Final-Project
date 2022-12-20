@@ -33,6 +33,7 @@ export default defineComponent( {
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
+                 <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/categories">Categories</router-link></li>
                 <li><router-link to="/news">News</router-link></li>
                 <li><router-link to="/AboutUs">About us</router-link></li>
@@ -59,6 +60,7 @@ export default defineComponent( {
     line-height: 4.6;
     padding-left: 1px;
     text-align: center;
+    top: 0;
 }
 
 .topMenu li {
@@ -72,23 +74,35 @@ export default defineComponent( {
     display: inline-block;
 }
 
-#container {
-    background-image: url('../assets/menu.webp');
-}
-
-a {
-    transition: color .4s ease-in-out, box-shadow .2s ease-in-oute;
-}
 
 ul {
     padding-left: 0;
     margin-top: 0;
+}
+
+#container {
+    background-image: url('../assets/menu.webp');
+}
+
+.logo {
+    background-image: url("src/assets/img/clover.png");
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+a {
+
+    transition: color .6s ease-in-out, box-shadow .2s ease-in-out;
 
 }
 
 a:hover {
     color: #fff;
     box-shadow: inset 0 0 0 0 rgb(123, 166, 67);
+
 }
 
 .search {

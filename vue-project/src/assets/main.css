@@ -7,15 +7,39 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  line-height: 1.5;
   color: #333;
-  min-height: 60vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
+  padding: auto;
+  color: rgb (58, 109, 37);
+}
+
+h1 {
+  font-size: 150%;
+  padding-left: 2em;
+}
+
+.menu h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 130%;
+  padding-left: 2em;
+}
+
+h3 {
+  font-size: 110%;
+  padding-left: 2em;
+}
+
+p {
+  padding-left: 2em;
 }
 
 .content {
-  padding: 3em;
+  padding: 1em;
 }
 
 footer {
@@ -26,38 +50,49 @@ footer {
   margin-top: auto;
 }
 
+body {
+  background-color: white;
+}
+
 .dataTable,
 .dataTable th,
 .dataTable td {
   border: 1px solid #000;
 }
+
 .dataTable {
-  /* border-spacing: 0; */
   border-collapse: collapse;
   width: 1000px;
   margin: auto;
 }
+
 .dataTable th,
 .dataTable td {
   padding: 20px;
 }
+
 .dataTable th {
   background-color: black;
   color: white;
 }
+
 .dataTable th:nth-of-type(1),
 .dataTable th:nth-of-type(2) {
   border-right: 1px solid white;
 }
+
 .dataTable tfoot td {
   background-color: #eee;
 }
+
 /* :nth-child - pseudo-class */
 .dataTable tbody tr:nth-child(even) {
   background-color: #ccc;
 }
+
 .dataTable tbody tr:hover {
   cursor: pointer;
   background-color: #666;
   color: white;
+
 }
