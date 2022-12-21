@@ -9,25 +9,22 @@
             <div class="column" id="aboutUs">
                 <div class="field">
                     <div class="aboutUsText">
-                        <h3>About us </h3>
-                        <ul>
-                            <li>We are small big team of two developers that enjoy creating anything that is given to
-                                us!</li>
-                            <li>Development is our passio and beats in our heaths</li>
-                            <li>Gardening is our lajf. Well atleast Lukases one!</li>
-                        </ul>
+                        <h3>The Gardener (aka cold exposer): </h3>
+                        <img class="lukasimg" src="src/components/icons/LukasSeMeje.png" alt="LukásOtužovadlo">
+                        <p>Je to on, mého srdce šampion. Pouze on se umí koupat a smát ve studené vodě</p>
+                        <p>Zcela jistě je to Lukáš</p>
                     </div>
                 </div>
             </div>
             <div class="column" id="location">
 
                 <div class="field">
-                    <h3>Where you can find us </h3>
-                    <div class="mapouter">
-                        <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
-                                marginheight="0" marginwidth="0"
-                                src="https://maps.google.com/maps?width=&amp;height=450&amp;hl=en&amp;q=T-Mobile Roztyly&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
-                                href="https://embedmapgenerator.com">google maps code generator</a></div>
+                    <div class="aboutUsText">
+                        <h3>Just Bradek: </h3>
+                        <img class="bradekimg" src="src/components/icons/BradekPije.jpeg" alt="bradkopíč">
+                        <p>Koukněte na něho. Jak si tam sedí. Buržoust</p>
+                        <p>A tak velké brčko, copak asi pil?!?</p>
+                        <p>Prostě Bradek SmileyFaceWithCryingEyes</p>
                     </div>
                 </div>
             </div>
@@ -36,6 +33,20 @@
 </template>
 
 <style scoped>
+.lukasimg {
+    width: 300px;
+    height: 350px;
+    float: left;
+    padding-right: 2%;
+}
+
+.bradekimg {
+    width: 300px;
+    height: 350px;
+    float: right;
+    padding-left: 2%;
+}
+
 body {
     margin: 1%;
 }
@@ -63,23 +74,6 @@ h3 {
     color: rgb(125, 170, 70);
 }
 
-.mapouter {
-    position: relative;
-    text-align: right;
-    width: 100%;
-    height: 450px;
-}
-
-.gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-    width: 100%;
-    height: 450px;
-}
-
-.gmap_iframe {
-    height: 450px !important;
-}
 
 ul li {
     list-style: none;

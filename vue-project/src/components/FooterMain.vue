@@ -44,9 +44,6 @@ export default {
                                    <router-link class="navigationLinks" to="/contacts">Contacts</router-link>
                               </li>
                               <li>
-                                   <router-link class="navigationLinks" to="/home">Contact</router-link>
-                              </li>
-                              <li>
                                    <a class="navigationLinks" href="https://duckduckgo.com/"
                                         target="_blank">DuckDuckGo</a>
                               </li>

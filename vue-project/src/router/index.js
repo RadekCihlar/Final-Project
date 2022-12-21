@@ -10,6 +10,7 @@ import AboutUs from "../components/AboutUs.vue";
 import Register from "../components/RegistrationForm.vue";
 import Login from "../components/LoginForm.vue";
 import categories from "../components/categories.vue";
+import ContactUs from "../components/ContactUs.vue";
 
 const routes = [
   {
@@ -87,6 +88,14 @@ const routes = [
     name: "categories",
     path: "/categories",
     component: categories,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: "contact",
+    path: "/contact",
+    component: ContactUs,
     meta: {
       requiresAuth: true,
     },
