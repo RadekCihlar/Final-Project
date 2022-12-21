@@ -9,7 +9,8 @@ import PageNotFoundView from "../views/PageNotFoundView.vue";
 import AboutUs from "../components/AboutUs.vue";
 import Register from "../components/RegistrationForm.vue";
 import Login from "../components/LoginForm.vue";
-import Logout from "../components/LogoutButton.vue";
+import categories from "../components/categories.vue";
+import ContactUs from "../components/ContactUs.vue";
 
 const routes = [
   {
@@ -84,9 +85,17 @@ const routes = [
     },
   },
   {
-    name: "logout",
-    path: "/logout",
-    component: Logout,
+    name: "categories",
+    path: "/categories",
+    component: categories,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: "contact",
+    path: "/contact",
+    component: ContactUs,
     meta: {
       requiresAuth: true,
     },

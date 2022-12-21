@@ -10,30 +10,36 @@ export default defineComponent( {
             searchTerm: "",
             // This row lets us get information for loggedUsername
             loggedUsername: JSON.parse( localStorage.getItem( 'authStore' ) )
-
         }
     },
     computed: {
         ...mapStores( useAuthStore )
+    },
+    methods: {
+        logout() {
+            this.authStore.logout()
+                .then( () =>
+                    localStorage.removeItem( 'authStore' ),
+                    this.$router.push( { path: '/' } ) )
+        }
     }
 },
-
 );
 
 </script>
 <template>
-    <p>{{ authStore.isAuthenticated ? "Current username is: " + loggedUsername : "" }}</p>
-
     <nav class="topMenu">
-        <ul v-if="!authStore.$state.isAuthenticated">
-            <li><router-link to="/login">Login</router-link></li>
-            <li><router-link to="/register">Sign up</router-link></li>
-        </ul>
-        <ul v-else>
-            <li><router-link to="/logout">Logout</router-link></li>
-        </ul>
         <section id="container">
+
             <ul>
+                <li>
+                    {{ authStore.isAuthenticated ? "Current username is: " + loggedUsername : "" }}
+                </li>
+                <li v-if="!authStore.$state.isAuthenticated" id="login"> <router-link to="/login">Login</router-link>
+                </li>
+                <li v-if="!authStore.$state.isAuthenticated" id="login"> <router-link to="/register">Sign
+                        up</router-link></li>
+                <li v-else id="login" @click="logout"><router-link to="/logout">Logout</router-link></li>
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
@@ -57,6 +63,10 @@ export default defineComponent( {
     </nav>
 </template>
 <style scoped>
+#login {
+    text-align: left;
+}
+
 .topMenu {
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
