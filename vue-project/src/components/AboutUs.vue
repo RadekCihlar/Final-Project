@@ -22,7 +22,7 @@
             <div class="column" id="location">
 
                 <div class="field">
-                    <h3>Where you can find is </h3>
+                    <h3>Where you can find us </h3>
                     <div class="mapouter">
                         <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
                                 marginheight="0" marginwidth="0"

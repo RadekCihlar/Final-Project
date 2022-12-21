@@ -67,7 +67,7 @@ export default defineComponent( {
 </template>
 <style scoped>
 #login {
-    text-align: left !important;
+    text-align: left;
 }
 
 .topMenu {
