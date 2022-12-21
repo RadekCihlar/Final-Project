@@ -16,6 +16,7 @@ export default defineComponent( {
       },
       response: null,
       error: null,
+      left: '0px'
     }
   },
   computed: {
@@ -38,6 +39,16 @@ export default defineComponent( {
           this.response = data;
         } )
         .catch( error => this.error = { message: "Account already exists" } )
+    },
+    moveElement() {
+      if ( this.left === '0px' ) {
+        this.left = '250px'
+      } else if ( this.left === '250px' ) {
+        this.left = "-250px"
+      } else if ( this.left === '-250px' ) {
+        this.left = '250px'
+      }
+
     }
   }
 } );
@@ -84,7 +95,10 @@ export default defineComponent( {
 
 
         <br>
-        <button class="log-in" type="submit" :disabled="!valid"> Register </button>
+        <button v-if="!valid" class="log-in" type="submit" v-bind:style="{ marginLeft: left }"
+          @mouseover="moveElement()">
+          Register </button>
+        <button v-else class="log-in" type="submit" :disabled="!valid"> Register </button>
       </div>
     </form>
   </div>
