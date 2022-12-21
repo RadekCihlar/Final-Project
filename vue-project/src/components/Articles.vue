@@ -43,7 +43,8 @@ export default {
         <div>
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
-            </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+            </h1> ؜
+            <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
                     articleDate
             }}</h2>
             <p>{{ article.introText }}</p>

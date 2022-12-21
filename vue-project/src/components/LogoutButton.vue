@@ -10,7 +10,6 @@ export default defineComponent( {
         .then( () =>
           localStorage.removeItem( 'authStore' ),
           this.$router.push( { path: '/' } ) )
-        .then( alert( "Logged Out!" ) )
     },
   },
   computed: {
