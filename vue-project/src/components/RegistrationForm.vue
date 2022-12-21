@@ -44,34 +44,6 @@ export default defineComponent( {
 </script>
 
 <template>
-  <!-- <form @submit.prevent="register" v-if="!response">
-    <fieldset>
-      <label for="username">
-        <span>Username</span>
-        <input type="text" id="username" autocomplete="username" v-model="registrationData.username">
-      </label>
-      <ul>
-        <li v-if="registrationData.username === ''">Username cannot be empty</li>
-      </ul>
-
-      <label for="password1">
-        <span>Password</span>
-        <input type="password" id="password1" autocomplete="new-password" v-model="registrationData.password1">
-      </label>
-
-      <label for="password2">
-        <span>Password repeat</span>
-        <input type="password" id="password2" autocomplete="new-password" v-model="registrationData.password2">
-      </label>
-      <ul>
-        <li v-if="registrationData.password1 !== registrationData.password2">Passwords do not match</li>
-        <li v-if="registrationData.password1.length < 8 || registrationData.password2.length < 8">Password needs to be
-          atleast 8 characters long</li>
-      </ul>
-
-      <button type="submit" :disabled="!valid">Register</button>
-    </fieldset>
-  </form> -->
 
   <div class="overlay">
     <form @submit.prevent="register" v-if="!response">
@@ -229,7 +201,6 @@ button {
 .submits {
   width: 48%;
   display: inline-block;
-  float: left;
   margin-left: 2%;
 }
 
@@ -261,7 +232,7 @@ button:hover {
   }
 }
 
-li{
+li {
   color: white;
   margin-top: 2%;
 }

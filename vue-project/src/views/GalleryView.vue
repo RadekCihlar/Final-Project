@@ -9,9 +9,7 @@ export default {
 </script>
 <template>
 
-    <body>
-<!--         <h2>Few beautiful gardens for inspiration...</h2>
- -->        <Gallery></Gallery>
+    <body> --> <Gallery></Gallery>
     </body>
 </template>
 <style>

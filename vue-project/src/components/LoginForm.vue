@@ -49,28 +49,6 @@ export default defineComponent( {
 </script>
 
 <template>
-  <!--   <p>To have full access to the page. Please log in!</p>
-  <form @submit.prevent="login" v-if="!authStore.isAuthenticated">
-    <fieldset>
-      <label for="username">
-        <span>Username</span>
-        <input type="text" id="username" autocomplete="username" v-model="user.username">
-      </label>
-
-      <label for="password">
-        <span>Password</span>
-        <input type="password" id="password" autocomplete="current-password" v-model="user.password">
-      </label>
-
-      <button type="submit" :disabled="!valid">Login</button>
-    </fieldset>
-  </form>
-
- -->
-
-
-
-
   <div class="overlay">
     <form @submit.prevent="login" v-if="!authStore.isAuthenticated">
       <header class="head-form">
@@ -219,7 +197,6 @@ button {
 .submits {
   width: 48%;
   display: inline-block;
-  float: left;
   margin-left: 2%;
 }
 
