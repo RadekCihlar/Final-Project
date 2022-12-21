@@ -5,7 +5,9 @@ export default {
             categories: [],
             articles: [],
             searchedId: 1,
-
+            article: {
+                postedDateTime: 1671499609000,
+            },
         };
     },
     methods: {
@@ -32,6 +34,11 @@ export default {
     },
     created() {
         this.getCategories() // when we load compononent this method runs
+    },
+    computed: {
+        articleDate() {
+            return new Date( this.article.postedDateTime ).toDateString()
+        },
     }
 }
 </script>
@@ -42,7 +49,6 @@ export default {
                 category.name
         }}</li>
     </ul>
-
     <tr v-for="article of articles" :key="article.id">
         <div>
             <h1 :id='article.id'>{{ article.title }}
@@ -73,6 +79,11 @@ h2 {
     line-height: 1.2;
     margin: 0;
     padding: 0;
+}
+
+body {
+    margin: 1%;
+    min-height: 40vh;
 }
 
 p {

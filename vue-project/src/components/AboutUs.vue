@@ -49,6 +49,7 @@
 
 body {
     margin: 1%;
+    min-height: 40vh;
 }
 
 .row {

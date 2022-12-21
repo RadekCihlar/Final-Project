@@ -10,7 +10,6 @@ export default defineComponent( {
             searchTerm: "",
             // This row lets us get information for loggedUsername
             loggedUsername: JSON.parse( localStorage.getItem( 'authStore' ) )
-
         }
     },
     computed: {
@@ -21,12 +20,10 @@ export default defineComponent( {
             this.authStore.logout()
                 .then( () =>
                     localStorage.removeItem( 'authStore' ),
-                    this.$router.push( { path: '/' } ) ),
-                alert( "Logged OUT!" )
+                    this.$router.push( { path: '/' } ) )
         }
     }
 },
-
 );
 
 </script>
