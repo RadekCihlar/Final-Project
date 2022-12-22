@@ -43,12 +43,11 @@ export default {
 }
 </script>
 <template>
-    <span>Categories to choose from:</span>
-    <ul>
+    <p style="font-weight: bold;">Categories to choose from: <ul>
         <li v-for="category of categories" :id="category.id" @click="getArticlesInCategory(category.id)">{{
                 category.name
         }}</li>
-    </ul>
+    </ul></p>
     <tr v-for="article of articles" :key="article.id">
         <div>
             <h1 :id='article.id'>{{ article.title }}
@@ -91,7 +90,7 @@ p {
 }
 
 hr {
-    width: 80%;
+    width: 70%;
     float: right;
     margin-top: 15px;
 }

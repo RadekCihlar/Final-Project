@@ -6,7 +6,7 @@ export default {
             article: {
                 postedDateTime: 1671499609000,
             },
-            totalArticles: 0,
+/*             totalArticles: 0, */
             idValue: 0,
             currentUrl: "",
             articleNumber: 0,
@@ -51,7 +51,7 @@ export default {
     <p>{{ getSelectedArticleId(currentUrl) }}</p>
     <p>{{ parseInt(getSelectedArticleId(currentUrl)) }}</p>
     <h1 v-if="parseInt(getSelectedArticleId(currentUrl)) === 1">equals</h1> -->
-    <p><router-link :to="{ name: 'Articles' }">Go back to articles list.</router-link></p>
+    <p><p><router-link :to="{ name: 'Articles' }">Go back to articles list.</router-link></p></p>
 
     <!-- lame code prevending onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > > -->
     <tr v-for="article of articles" :key="article.id">
