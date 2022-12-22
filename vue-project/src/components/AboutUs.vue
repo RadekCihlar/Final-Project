@@ -62,7 +62,7 @@ body {
 }
 
 #aboutUs {
-    background-color: #fbfaf9;
+    background-color: whitesmoke;
 }
 
 .field {
