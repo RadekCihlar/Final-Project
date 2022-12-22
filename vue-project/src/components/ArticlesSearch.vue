@@ -6,6 +6,9 @@ export default {
             totalArticles: 0,
             searchTerm: this.$route.query.searchTerm,
             loading: false,
+            article: {
+                postedDateTime: 1671499609000,
+            },
         };
     },
     methods: {
@@ -42,19 +45,24 @@ export default {
             },
             deep: true
         }
+    },
+    computed: {
+        articleDate() {
+            return new Date( this.article.postedDateTime ).toDateString()
+        },
     }
 }
 </script>
 <template>
 
     <body>
-        <p v-if="!articles.length" v-show="loading">
-        <h4>
-            No articles found with title: <span v-if="searchTerm === ''">EMPTY SEARCH! </span> <span v-else>
-                {{ searchTerm }}</span>
-        </h4>
-        </p>
-        <p v-else>
+        <span v-if="!articles.length" v-show="loading">
+            <h4>
+                No articles found with title: <span v-if="searchTerm === ''">EMPTY SEARCH! </span> <span v-else>
+                    {{ searchTerm }}</span>
+            </h4>
+        </span>
+        <span v-else>
             <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
                 <div class="article">
                     <h1 :id='article.id'>{{ article.title }}
@@ -68,7 +76,7 @@ export default {
                         <p>{{ article.outroText }}</p> -->
                 </div>
             </tr>
-        </p>
+        </span>
     </body>
 
 </template>
@@ -105,6 +113,12 @@ h2.remove-whitespace {
     padding: 0;
     line-height: 30px;
     height: 25px;
+}
+
+div:hover {
+
+    cursor: pointer;
+
 }
 </style>
 

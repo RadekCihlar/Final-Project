@@ -121,4 +121,10 @@ li:hover {
     text-decoration: underline;
 
 }
+
+div:hover {
+
+    cursor: pointer;
+
+}
 </style>
