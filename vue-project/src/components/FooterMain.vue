@@ -34,9 +34,7 @@ export default {
                               <li>
                                    <router-link class="navigationLinks" to="/categories">Categories</router-link>
                               </li>
-                              <li>
-                                   <router-link class="navigationLinks" to="/news">News</router-link>
-                              </li>
+
                               <li>
                                    <router-link class="navigationLinks" to="/aboutus">About us</router-link>
                               </li>
