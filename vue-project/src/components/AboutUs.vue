@@ -9,7 +9,7 @@
             <div class="column" id="aboutUs">
                 <div class="field">
                     <div class="aboutUsText">
-                        <h3>The Gardener (aka cold exposer): </h3>
+                        <h3>The Gardener (aka cold exposed): </h3>
                         <img class="lukasimg" src="src/components/icons/LukasSeMeje.png" alt="LukásOtužovadlo">
                         <p>Je to on, mého srdce šampion. Pouze on se umí koupat a smát ve studené vodě</p>
                         <p>Zcela jistě je to Lukáš</p>

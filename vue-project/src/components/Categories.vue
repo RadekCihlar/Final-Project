@@ -43,13 +43,15 @@ export default {
 }
 </script>
 <template>
-    <p style="font-weight: bold;">Categories to choose from: <ul>
+    <p style="font-weight: bold;">Categories to choose from:
+    <ul>
         <li v-for="category of categories" :id="category.id" @click="getArticlesInCategory(category.id)">{{
                 category.name
         }}</li>
-    </ul></p>
-    <tr v-for="article of articles" :key="article.id">
-        <div>
+    </ul>
+    </p>
+    <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
+        <div class="article">
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
             </h1> ؜
@@ -57,8 +59,8 @@ export default {
                     articleDate
             }}</h2>
             <p>{{ article.introText }}</p>
-            <p>{{ article.bodyText }}</p>
-            <p>{{ article.outroText }}</p>
+            <!--             <p>{{ article.bodyText }}</p>
+                <p>{{ article.outroText }}</p> -->
         </div>
     </tr>
 </template>

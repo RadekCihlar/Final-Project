@@ -98,7 +98,7 @@ const routes = [
     path: "/contact",
     component: ContactUs,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
   },
   /*   {

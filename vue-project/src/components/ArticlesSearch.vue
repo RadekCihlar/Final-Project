@@ -56,7 +56,7 @@ export default {
         </p>
         <p v-else>
             <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
-                <div>
+                <div class="article">
                     <h1 :id='article.id'>{{ article.title }}
                         <hr>
                     </h1> ؜
@@ -64,8 +64,8 @@ export default {
                             articleDate
                     }}</h2>
                     <p>{{ article.introText }}</p>
-                    <p>{{ article.bodyText }}</p>
-                    <p>{{ article.outroText }}</p>
+                    <!--             <p>{{ article.bodyText }}</p>
+                        <p>{{ article.outroText }}</p> -->
                 </div>
             </tr>
         </p>
