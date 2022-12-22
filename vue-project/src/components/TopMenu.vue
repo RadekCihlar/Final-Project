@@ -43,8 +43,8 @@ export default defineComponent( {
                 <li><router-link to="/"></router-link></li>
                 <li><router-link to="/home">Home</router-link></li>
                 <li><router-link to="/articles">Articles</router-link></li>
-                <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/categories">Categories</router-link></li>
+                <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/AboutUs">About us</router-link></li>
                 <li><router-link to="/Contact">Contact</router-link></li>
 

@@ -3,6 +3,7 @@ import { useAuthStore } from "@/store/auth";
 
 import HomeView from "../views/HomeView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
+import ArticleView from "../views/ArticleView.vue";
 import ArticlesSearchView from "../views/ArticlesSearchView.vue";
 import GalleryView from "../views/GalleryView.vue";
 import PageNotFoundView from "../views/PageNotFoundView.vue";
@@ -45,9 +46,9 @@ const routes = [
     },
   },
   {
-    path: "/articles/{id}",
+    path: "/articles/:id",
     name: "Article",
-    component: ArticlesView,
+    component: ArticleView,
     meta: {
       requiresAuth: false,
     },

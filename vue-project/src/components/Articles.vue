@@ -29,6 +29,7 @@ export default {
             }
         },
         showInfo( idValue ) {
+            console.log(idValue);
             this.$router.push( { name: 'Article', params: { id: idValue } } );
         }
     },
@@ -40,7 +41,7 @@ export default {
 <template>
     <!-- @click="showInfo(article.id)"> -->
     <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
-        <div>
+        <div class="article">
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
             </h1> ؜
@@ -48,8 +49,8 @@ export default {
                     articleDate
             }}</h2>
             <p>{{ article.introText }}</p>
-            <p>{{ article.bodyText }}</p>
-            <p>{{ article.outroText }}</p>
+<!--             <p>{{ article.bodyText }}</p>
+            <p>{{ article.outroText }}</p> -->
         </div>
     </tr>
 </template>
@@ -61,8 +62,12 @@ div {
     background-color: whitesmoke;
     margin-bottom: 5px;
     border: 0px solid black;
+    
 }
 
+div:hover {
+    cursor: pointer;
+}
 h1,
 h2 {
     text-indent: 2em;
@@ -76,7 +81,7 @@ p {
 }
 
 hr {
-    width: 80%;
+    width: 70%;
     float: right;
     margin-top: 15px;
 }

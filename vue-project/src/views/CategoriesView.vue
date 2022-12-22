@@ -8,5 +8,5 @@ export default {
 </script>
 
 <template>
-    <categories></categories>
+    <Categories></Categories>
 </template>

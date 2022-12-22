@@ -15,6 +15,26 @@ div {
 
 .text {
   margin-top: 3%;
+  font-weight: bold;
   color: rgb(123, 166, 67);
+}
+a:link {
+    color: black;
+    font-weight: bold;
+}
+
+a:visited {
+    color: black;
+    font-weight: bold;
+}
+
+a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+a:active {
+    color: black;
+    font-weight: bold;
 }
 </style>

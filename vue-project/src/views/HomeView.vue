@@ -3,11 +3,11 @@
 
   <body>
     <div class="menu">
-      <h1>Welcome page!</h1>
-      <p style="text-align: center;">YOU ARE BEING HYPNOTISED! FORGET EVERYTHING YOU ARE GOING TO SEE</p>
+      <h1>Welcome to our web about gardening!</h1>
+      <b><h2 style="text-align: center; color: rgb(123, 166, 67)">YOU ARE BEING HYPNOTISED! FORGET EVERYTHING YOU ARE GOING TO SEE</h2></b>
       <img class="center" style="height: 500px; width: 500px; position: inherit;" src="src/assets/img/clover.png"
         alt="logo" />
-      <p style="text-align: center;">YOU ARE BEING HYPNOTISED! FORGET EVERYTHING YOU ARE GOING TO SEE</p>
+        <b><h2 style="text-align: center; color: rgb(123, 166, 67)">YOU ARE BEING HYPNOTISED! FORGET EVERYTHING YOU ARE GOING TO SEE</h2></b>
     </div>
   </body>
 </template>
