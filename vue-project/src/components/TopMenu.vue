@@ -45,7 +45,6 @@ export default defineComponent( {
                 <li><router-link to="/articles">Articles</router-link></li>
                 <li><router-link to="/gallery">Gallery</router-link></li>
                 <li><router-link to="/categories">Categories</router-link></li>
-                <li><router-link to="/news">News</router-link></li>
                 <li><router-link to="/AboutUs">About us</router-link></li>
                 <li><router-link to="/Contact">Contact</router-link></li>
 

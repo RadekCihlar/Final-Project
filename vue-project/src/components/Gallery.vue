@@ -31,7 +31,7 @@ export default {
 
     methods: {
         startSlide: function () {
-            this.timer = setInterval(this.next, 5000);
+            this.timer = setInterval( this.next, 5000 );
         },
 
         next: function () {
@@ -44,62 +44,61 @@ export default {
 
     computed: {
         currentImg: function () {
-            return this.images[Math.abs(this.currentIndex) % this.images.length];
+            return this.images[Math.abs( this.currentIndex ) % this.images.length];
         }
     }
 };
 </script>
 <style scoped>
-
-
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s ease;
-  overflow: hidden;
-  visibility: visible;
-  position: absolute;
-  width: 80%;
-  opacity: 0.5;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    visibility: visible;
+    position: absolute;
+    width: 80%;
+    opacity: 0.5;
 }
 
 .fade-enter,
 .fade-leave-to {
-  visibility: hidden;
-  width:100%;
-  opacity: 0.9;
+    visibility: hidden;
+    width: 100%;
+    opacity: 0.9;
 }
 
 img {
-  height:768px;
-  width:100%
+    height: 768px;
+    width: 100%
 }
 
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.7s ease;
-  border-radius: 0 4px 4px 0;
-  text-decoration: none;
-  user-select: none;
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.7s ease;
+    border-radius: 0 4px 4px 0;
+    text-decoration: none;
+    user-select: none;
 }
 
 .next {
-  right: 0;
+    right: 0;
 }
 
 .prev {
-  left: 0;
+    left: 0;
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.3);
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 </style>
   
