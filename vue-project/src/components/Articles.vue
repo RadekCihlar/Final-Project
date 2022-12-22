@@ -29,6 +29,7 @@ export default {
             }
         },
         showInfo( idValue ) {
+            console.log(idValue);
             this.$router.push( { name: 'Article', params: { id: idValue } } );
         }
     },
@@ -40,7 +41,7 @@ export default {
 <template>
     <!-- @click="showInfo(article.id)"> -->
     <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
-        <div>
+        <div class="article">
             <h1 :id='article.id'>{{ article.title }}
                 <hr>
             </h1> ؜
@@ -61,8 +62,12 @@ div {
     background-color: whitesmoke;
     margin-bottom: 5px;
     border: 0px solid black;
+    
 }
 
+div:hover {
+    cursor: pointer;
+}
 h1,
 h2 {
     text-indent: 2em;
