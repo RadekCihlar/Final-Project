@@ -29,7 +29,7 @@ export default {
             }
         },
         showInfo( idValue ) {
-            console.log(idValue);
+            console.log( idValue );
             this.$router.push( { name: 'Article', params: { id: idValue } } );
         }
     },
@@ -39,20 +39,25 @@ export default {
 }
 </script>
 <template>
-    <!-- @click="showInfo(article.id)"> -->
-    <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
-        <div class="article">
-            <h1 :id='article.id'>{{ article.title }}
-                <hr>
-            </h1> ؜
-            <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
-                    articleDate
-            }}</h2>
-            <p>{{ article.introText }}</p>
-<!--             <p>{{ article.bodyText }}</p>
+
+    <body>
+
+
+        <!-- @click="showInfo(article.id)"> -->
+        <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
+            <div class="article">
+                <h1 :id='article.id'>{{ article.title }}
+                    <hr>
+                </h1> ؜
+                <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+                        articleDate
+                }}</h2>
+                <p>{{ article.introText }}</p>
+                <!--             <p>{{ article.bodyText }}</p>
             <p>{{ article.outroText }}</p> -->
-        </div>
-    </tr>
+            </div>
+        </tr>
+    </body>
 </template>
 
 <style scoped>
@@ -62,12 +67,13 @@ div {
     background-color: whitesmoke;
     margin-bottom: 5px;
     border: 0px solid black;
-    
+
 }
 
 div:hover {
     cursor: pointer;
 }
+
 h1,
 h2 {
     text-indent: 2em;

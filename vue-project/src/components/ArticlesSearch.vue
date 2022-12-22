@@ -88,6 +88,11 @@ div {
     background-color: whitesmoke;
     margin-bottom: 5px;
     border: 0px solid black;
+
+}
+
+div:hover {
+    cursor: pointer;
 }
 
 h1,
@@ -103,7 +108,7 @@ p {
 }
 
 hr {
-    width: 80%;
+    width: 70%;
     float: right;
     margin-top: 15px;
 }
@@ -113,12 +118,6 @@ h2.remove-whitespace {
     padding: 0;
     line-height: 30px;
     height: 25px;
-}
-
-div:hover {
-
-    cursor: pointer;
-
 }
 </style>
 

@@ -47,26 +47,31 @@ export default {
 }
 </script>
 <template>
-    <p style="font-weight: bold;">Categories to choose from:
-    <ul>
-        <li v-for="category of categories" :id="category.id" @click="getArticlesInCategory(category.id)">{{
-                category.name
-        }}</li>
-    </ul>
-    </p>
-    <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
-        <div class="article">
-            <h1 :id='article.id'>{{ article.title }}
-                <hr>
-            </h1> ؜
-            <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
-                    articleDate
-            }}</h2>
-            <p>{{ article.introText }}</p>
-            <!--             <p>{{ article.bodyText }}</p>
+
+    <body>
+
+
+        <p style="font-weight: bold;">Categories to choose from:
+        <ul>
+            <li v-for="category of categories" :id="category.id" @click="getArticlesInCategory(category.id)">{{
+                    category.name
+            }}</li>
+        </ul>
+        </p>
+        <tr v-for="article of articles" :key="article.id" @click="showInfo(article.id)">
+            <div class="article">
+                <h1 :id='article.id'>{{ article.title }}
+                    <hr>
+                </h1> ؜
+                <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+                        articleDate
+                }}</h2>
+                <p>{{ article.introText }}</p>
+                <!--             <p>{{ article.bodyText }}</p>
             <p>{{ article.outroText }}</p> -->
-        </div>
-    </tr>
+            </div>
+        </tr>
+    </body>
 </template>
 
 <style scoped>
@@ -77,6 +82,13 @@ div {
     margin-bottom: 5px;
     border: 0px solid black;
 }
+
+body {
+    background-color: whitesmoke;
+    margin: 1%;
+    min-height: 40vh;
+}
+
 div:hover {
     cursor: pointer;
 }
@@ -89,10 +101,6 @@ h2 {
     padding: 0;
 }
 
-body {
-    margin: 1%;
-    min-height: 40vh;
-}
 
 p {
     text-indent: 2em;
