@@ -9,7 +9,8 @@ export default {
 </script>
 <template>
 
-    <body> --> <Gallery></Gallery>
+    <body>
+        <Gallery></Gallery>
     </body>
 </template>
 <style>

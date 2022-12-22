@@ -16,9 +16,6 @@ export default {
         articleDate() {
             return new Date(this.article.postedDateTime).toDateString()
         },
-        singleArticleId() {
-            return new this.currentUrl.slice(-1);
-        },
     },
     methods: {
         async getArticles() {
@@ -59,43 +56,71 @@ export default {
     <!-- lame code prevending onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > > -->
     <tr v-for="article of articles" :key="article.id">
         <div class="article" v-if="article.id === parseInt(getSelectedArticleId(currentUrl))">
-                <h1 :id='article.id'>{{ article.title }}
-                    <hr>
-                </h1> ؜
-                <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
-                        articleDate
-                }}</h2>
-                <p>{{ article.introText }}</p>
+            <h1 :id='article.id'>{{ article.title }}
+                <hr>
+            </h1> ؜
+            <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+                    articleDate
+            }}</h2>
+            <p>{{ article.introText }}</p>
 
-                <p> <img src="/src/assets/img/2.jpg" alt="Some nature" id="photo">
-                
-                    {{ article.bodyText }}</p>
+            <p> <img src="/src/assets/img/2.jpg" alt="Some nature" id="photo">
 
-                <p><img src="/src/assets/img/3.jpg" alt="Some nature" id="photo">
+                {{ article.bodyText }}</p>
+
+            <p><img src="/src/assets/img/3.jpg" alt="Some nature" id="photo2">
                 {{ article.outroText }}</p>
         </div>
     </tr>
 </template>
 <style scoped>
+a:link {
+    color: black;
+    font-weight: bold;
+}
+
+a:visited {
+    color: black;
+    font-weight: bold;
+}
+
+a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+a:active {
+    color: black;
+    font-weight: bold;
+}
+
 #photo {
-    width: 300px;
+    width: 500px;
     float: left;
-    border: 1px solid #bada55;
+    border: 1px solid gray;
     padding: 20px;
-    /*margin-left: 0px;*/
     margin-right: 20px;
     margin-bottom: 10px;
 }
-p {
-    
+
+#photo2 {
+    width: 500px;
+    float: right;
+    border: 1px solid gray;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
+
 div {
-    margin: 10px;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
     background-color: whitesmoke;
     margin-bottom: 5px;
     border: 0px solid black;
+    font-size: 18px;
 }
+
 h1,
 h2 {
     text-indent: 2em;
@@ -109,7 +134,7 @@ p {
 }
 
 hr {
-    width: 80%;
+    width: 70%;
     float: right;
     margin-top: 15px;
 }

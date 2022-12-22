@@ -28,19 +28,19 @@ public class Article {
     @Column (name = "intro_text")
     @NotNull
     @NotEmpty
-    @Size(min = 15, max = 1000, message = "Text 'intro_text' can not be empty (15 - 1000 chars).")
+    @Size(min = 15, max = 8000, message = "Text 'intro_text' can not be empty (15 - 1000 chars).")
     private String introText;
 
     @Column (name = "body_text")
     @NotNull
     @NotEmpty
-    @Size(min = 15, max = 10000, message = "Text 'body_text' can not be empty (15 - 10000 chars).")
+    @Size(min = 15, max = 8000, message = "Text 'body_text' can not be empty (15 - 10000 chars).")
     private String bodyText;
 
     @Column (name = "outro_text")
     @NotNull
     @NotEmpty
-    @Size(min = 15, max = 1000, message = "Text 'outro_text' can not be empty (15 - 1000 chars).")
+    @Size(min = 15, max = 8000, message = "Text 'outro_text' can not be empty (15 - 1000 chars).")
     private String outroText;
 
     @Column(name = "date")

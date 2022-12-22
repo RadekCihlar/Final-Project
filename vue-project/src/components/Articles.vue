@@ -49,8 +49,8 @@ export default {
                     articleDate
             }}</h2>
             <p>{{ article.introText }}</p>
-            <p>{{ article.bodyText }}</p>
-            <p>{{ article.outroText }}</p>
+<!--             <p>{{ article.bodyText }}</p>
+            <p>{{ article.outroText }}</p> -->
         </div>
     </tr>
 </template>
@@ -81,7 +81,7 @@ p {
 }
 
 hr {
-    width: 80%;
+    width: 70%;
     float: right;
     margin-top: 15px;
 }
