@@ -5,21 +5,24 @@ export default {
             articles: [],
             totalArticles: 0,
             searchTerm: this.$route.query.searchTerm,
+            loading: false,
         };
     },
     methods: {
         async getArticles() {
-            // fetch od Axios
+            this.loading = false;
             try {
-                // Fetch returns a promise (assynchronous)
                 let response = await fetch( 'http://localhost:8080/api/articles/search/' + this.$route.query.searchTerm );
                 this.articles = await response.json();
                 this.totalArticles = this.articles.length;
                 console.log( this.articles );
 
+
             } catch ( error ) {
                 console.log( "Error=", error );
+                this.loading = true;
             }
+
         },
         showInfo( idValue ) {
             this.$router.push( { name: 'Article', params: { id: idValue } } );
@@ -45,7 +48,7 @@ export default {
 <template>
 
     <body>
-        <p v-if="!articles.length">
+        <p v-if="!articles.length" v-show="loading">
         <h4>
             No articles found with title: <span v-if="searchTerm === ''">EMPTY SEARCH! </span> <span v-else>
                 {{ searchTerm }}</span>
@@ -56,10 +59,10 @@ export default {
                 <div>
                     <h1 :id='article.id'>{{ article.title }}
                         <hr>
-                    </h1>, <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }},
-                        Posted: {{
-                                articleDate
-                        }}</h2>
+                    </h1> ؜
+                    <h2>Category: {{ article.category === null ? "Uncategorized" : article.category.name }}, Posted: {{
+                            articleDate
+                    }}</h2>
                     <p>{{ article.introText }}</p>
                     <p>{{ article.bodyText }}</p>
                     <p>{{ article.outroText }}</p>
