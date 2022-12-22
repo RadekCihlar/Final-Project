@@ -71,7 +71,7 @@ export default defineComponent( {
     list-style: none;
     font-weight: 900;
     line-height: 4.6;
-    padding-left: 1px;
+    padding-left: 0px;
     text-align: center;
     top: 0;
 }
@@ -86,7 +86,6 @@ export default defineComponent( {
     padding: 20px 20px;
     display: inline-block;
 }
-
 
 ul {
     padding-left: 0;

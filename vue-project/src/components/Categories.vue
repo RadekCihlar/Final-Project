@@ -77,6 +77,9 @@ div {
     margin-bottom: 5px;
     border: 0px solid black;
 }
+div:hover {
+    cursor: pointer;
+}
 
 h1,
 h2 {

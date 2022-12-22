@@ -64,11 +64,11 @@ export default {
             }}</h2>
             <p>{{ article.introText }}</p>
 
-            <p> <img src="/src/assets/img/2.jpg" alt="Some nature" id="photo">
+            <p> <img src="/src/assets/img/8.jpg" alt="Some nature" id="photo">
 
                 {{ article.bodyText }}</p>
 
-            <p><img src="/src/assets/img/3.jpg" alt="Some nature" id="photo2">
+            <p><img src="/src/assets/img/6.jpg" alt="Some nature" id="photo2">
                 {{ article.outroText }}</p>
         </div>
     </tr>

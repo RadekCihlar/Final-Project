@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <transition-group name="fade" tag="div">
+    <section id="gallery">
+        <p>
+            <a class="prev" @click="prev" href="#">&#10094;&#10094; Previous</a>
+            <a class="next" @click="next" href="#">Next &#10095;&#10095;</a>
+        </p>
+        <transition-group tag="div">
             <div v-for="i in [currentIndex]" :key="i">
                 <img :src="currentImg" />
             </div>
         </transition-group>
-        <a class="prev" @click="prev" href="#">&#10094; Previous</a>
-        <a class="next" @click="next" href="#">&#10095; Next</a>
-    </div>
+    </section>
+    <p></p>
 </template>
 <script>
 export default {
@@ -19,6 +22,10 @@ export default {
                 "./src/assets/img/2.jpg",
                 "./src/assets/img/3.jpg",
                 "./src/assets/img/4.jpg",
+                "./src/assets/img/5.jpg",
+                "./src/assets/img/6.jpg",
+                "./src/assets/img/7.jpg",
+                "./src/assets/img/8.jpg",
             ],
             timer: null,
             currentIndex: 0
@@ -31,7 +38,7 @@ export default {
 
     methods: {
         startSlide: function () {
-            this.timer = setInterval( this.next, 5000 );
+            this.timer = setInterval(this.next, 4000);
         },
 
         next: function () {
@@ -44,46 +51,47 @@ export default {
 
     computed: {
         currentImg: function () {
-            return this.images[Math.abs( this.currentIndex ) % this.images.length];
+            return this.images[Math.abs(this.currentIndex) % this.images.length];
         }
     }
 };
 </script>
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: all 0.5s ease;
-    overflow: hidden;
-    visibility: visible;
-    position: absolute;
-    width: 80%;
-    opacity: 0.5;
+#gallery {
+    text-align: center;
+    background-color: whitesmoke;
 }
 
-.fade-enter,
-.fade-leave-to {
-    visibility: hidden;
-    width: 100%;
-    opacity: 0.9;
-}
-
-img {
-    height: 768px;
-    width: 100%
-}
-
-.prev,
-.next {
+#gallery img {
+    width: 50%;
+    height: 50%;
     cursor: pointer;
-    position: absolute;
-    top: 40%;
+}
+
+.prev {
+    cursor: pointer;
+    position: fixed;
+    top: 47%;
     width: auto;
-    padding: 16px;
-    color: white;
+    padding: 20px;
+    color: black;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.7s ease;
     border-radius: 0 4px 4px 0;
+    text-decoration: none;
+    user-select: none;
+}
+
+.next {
+    cursor: pointer;
+    position: fixed;
+    top: 47%;
+    width: auto;
+    padding: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px 0 0 4px;
     text-decoration: none;
     user-select: none;
 }
