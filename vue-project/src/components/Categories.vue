@@ -30,6 +30,10 @@ export default {
             } catch ( error ) {
                 console.log( "Error=", error );
             }
+        },
+        showInfo( idValue ) {
+            console.log(idValue);
+            this.$router.push( { name: 'Article', params: { id: idValue } } );
         }
     },
     created() {
